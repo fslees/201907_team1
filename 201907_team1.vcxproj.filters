@@ -13,39 +13,45 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="ソース ファイル\system">
+      <UniqueIdentifier>{65f1481d-bcd9-4709-8956-22c91567ea34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\system">
+      <UniqueIdentifier>{ad2f1a23-ce50-4f9f-9d3a-28830358a9f9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="system\camera.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\system</Filter>
     </ClCompile>
     <ClCompile Include="system\debugproc.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\system</Filter>
     </ClCompile>
     <ClCompile Include="system\input.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\system</Filter>
     </ClCompile>
     <ClCompile Include="system\light.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\system</Filter>
     </ClCompile>
     <ClCompile Include="system\main.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\system</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="system\camera.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>ヘッダー ファイル\system</Filter>
     </ClInclude>
     <ClInclude Include="system\debugproc.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>ヘッダー ファイル\system</Filter>
     </ClInclude>
     <ClInclude Include="system\input.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>ヘッダー ファイル\system</Filter>
     </ClInclude>
     <ClInclude Include="system\light.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>ヘッダー ファイル\system</Filter>
     </ClInclude>
     <ClInclude Include="system\main.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>ヘッダー ファイル\system</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
