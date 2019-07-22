@@ -282,6 +282,9 @@ HRESULT Init(HINSTANCE hInstance, HWND hWnd, BOOL bWindow)
 	D3DDevice->SetTextureStageState(0, D3DTSS_ALPHAARG1, D3DTA_TEXTURE);	// 最初のアルファ引数
 	D3DDevice->SetTextureStageState(0, D3DTSS_ALPHAARG2, D3DTA_CURRENT);	// ２番目のアルファ引数
 
+	// ゲームの初期化
+	InitGame();
+
 	// 入力処理の初期化
 	InitInput(hInstance, hWnd);
 
@@ -290,10 +293,6 @@ HRESULT Init(HINSTANCE hInstance, HWND hWnd, BOOL bWindow)
 
 	// ライトの初期化
 	InitLight();
-
-	// カメラの初期化
-	//InitCamera();
-
 
 	return S_OK;
 }
@@ -314,6 +313,9 @@ void Uninit(void)
 		D3D->Release();
 		D3D = NULL;
 	}
+	
+	// ゲームの終了処理
+	UninitGame();
 
 	// 入力処理の終了処理
 	UninitInput();
@@ -333,11 +335,11 @@ void Update(void)
 		DispDebug = DispDebug ? false: true;
 	}
 
+	// ゲームの更新
+	UpdateGame();
+
 	// 入力更新
 	UpdateInput();
-
-	// カメラ更新
-	//UpdateCamera();
 
 }
 
@@ -352,9 +354,9 @@ void Draw(void)
 	// Direct3Dによる描画の開始
 	if(SUCCEEDED(D3DDevice->BeginScene()))
 	{
-		// カメラの設定
-		//SetCamera();
 
+		// ゲームの描画
+		DrawGame();
 
 		// デバッグ表示処理の描画
 		if(DispDebug)

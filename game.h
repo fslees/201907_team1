@@ -9,4 +9,13 @@
 
 #include "main.h"
 
+//
+void InitGame();
+//
+void UninitGame();
+//
+void UpdateGame();
+//
+void DrawGame();
+
 #endif
