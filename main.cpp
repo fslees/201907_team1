@@ -8,6 +8,7 @@
 #include "input.h"
 #include "light.h"
 #include "camera.h"
+#include "game.h"
 #include "debugproc.h"
 
 //*****************************************************************************
@@ -291,7 +292,7 @@ HRESULT Init(HINSTANCE hInstance, HWND hWnd, BOOL bWindow)
 	InitLight();
 
 	// カメラの初期化
-	InitCamera();
+	//InitCamera();
 
 
 	return S_OK;
@@ -336,7 +337,7 @@ void Update(void)
 	UpdateInput();
 
 	// カメラ更新
-	UpdateCamera();
+	//UpdateCamera();
 
 }
 
@@ -352,7 +353,7 @@ void Draw(void)
 	if(SUCCEEDED(D3DDevice->BeginScene()))
 	{
 		// カメラの設定
-		SetCamera();
+		//SetCamera();
 
 
 		// デバッグ表示処理の描画
