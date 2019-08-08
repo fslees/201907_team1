@@ -5,6 +5,7 @@
 
 documentフォルダー
 制作に関わるものを収納
+・project.xlsxnの詳細は必ず確認すること
 
 sourceフォルダー
 ソースファイルを格納
