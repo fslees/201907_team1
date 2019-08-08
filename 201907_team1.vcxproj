@@ -19,20 +19,20 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="camera.h" />
-    <ClInclude Include="debugproc.h" />
-    <ClInclude Include="game.h" />
-    <ClInclude Include="input.h" />
-    <ClInclude Include="light.h" />
-    <ClInclude Include="main.h" />
+    <ClInclude Include="source\camera.h" />
+    <ClInclude Include="source\debugproc.h" />
+    <ClInclude Include="source\game.h" />
+    <ClInclude Include="source\input.h" />
+    <ClInclude Include="source\light.h" />
+    <ClInclude Include="source\main.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="camera.cpp" />
-    <ClCompile Include="debugproc.cpp" />
-    <ClCompile Include="game.cpp" />
-    <ClCompile Include="input.cpp" />
-    <ClCompile Include="light.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="source\camera.cpp" />
+    <ClCompile Include="source\debugproc.cpp" />
+    <ClCompile Include="source\game.cpp" />
+    <ClCompile Include="source\input.cpp" />
+    <ClCompile Include="source\light.cpp" />
+    <ClCompile Include="source\main.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

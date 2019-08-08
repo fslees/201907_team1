@@ -21,42 +21,42 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="camera.h">
+    <ClInclude Include="source\camera.h">
       <Filter>ヘッダー ファイル\system</Filter>
     </ClInclude>
-    <ClInclude Include="debugproc.h">
+    <ClInclude Include="source\debugproc.h">
       <Filter>ヘッダー ファイル\system</Filter>
     </ClInclude>
-    <ClInclude Include="game.h">
+    <ClInclude Include="source\game.h">
       <Filter>ヘッダー ファイル\system</Filter>
     </ClInclude>
-    <ClInclude Include="input.h">
+    <ClInclude Include="source\input.h">
       <Filter>ヘッダー ファイル\system</Filter>
     </ClInclude>
-    <ClInclude Include="light.h">
+    <ClInclude Include="source\light.h">
       <Filter>ヘッダー ファイル\system</Filter>
     </ClInclude>
-    <ClInclude Include="main.h">
+    <ClInclude Include="source\main.h">
       <Filter>ヘッダー ファイル\system</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="source\camera.cpp">
       <Filter>ソース ファイル\system</Filter>
     </ClCompile>
-    <ClCompile Include="camera.cpp">
+    <ClCompile Include="source\debugproc.cpp">
       <Filter>ソース ファイル\system</Filter>
     </ClCompile>
-    <ClCompile Include="debugproc.cpp">
+    <ClCompile Include="source\game.cpp">
       <Filter>ソース ファイル\system</Filter>
     </ClCompile>
-    <ClCompile Include="game.cpp">
+    <ClCompile Include="source\input.cpp">
       <Filter>ソース ファイル\system</Filter>
     </ClCompile>
-    <ClCompile Include="input.cpp">
+    <ClCompile Include="source\light.cpp">
       <Filter>ソース ファイル\system</Filter>
     </ClCompile>
-    <ClCompile Include="light.cpp">
+    <ClCompile Include="source\main.cpp">
       <Filter>ソース ファイル\system</Filter>
     </ClCompile>
   </ItemGroup>
