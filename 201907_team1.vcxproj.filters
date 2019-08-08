@@ -47,9 +47,6 @@
     <ClCompile Include="source\debugproc.cpp">
       <Filter>ソース ファイル\system</Filter>
     </ClCompile>
-    <ClCompile Include="source\game.cpp">
-      <Filter>ソース ファイル\system</Filter>
-    </ClCompile>
     <ClCompile Include="source\input.cpp">
       <Filter>ソース ファイル\system</Filter>
     </ClCompile>
@@ -57,6 +54,9 @@
       <Filter>ソース ファイル\system</Filter>
     </ClCompile>
     <ClCompile Include="source\main.cpp">
+      <Filter>ソース ファイル\system</Filter>
+    </ClCompile>
+    <ClCompile Include="source\game.cpp">
       <Filter>ソース ファイル\system</Filter>
     </ClCompile>
   </ItemGroup>

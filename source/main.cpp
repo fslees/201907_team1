@@ -267,7 +267,7 @@ HRESULT Init(HINSTANCE hInstance, HWND hWnd, BOOL bWindow)
 	// レンダリングステートパラメータの設定
     D3DDevice->SetRenderState(D3DRS_CULLMODE, D3DCULL_CCW);				// 裏面をカリング
 	D3DDevice->SetRenderState(D3DRS_ZENABLE, TRUE);						// Zバッファを使用
-	D3DDevice->SetRenderState(D3DRS_ALPHABLENDENABLE, TRUE);				// αブレンドを行う
+	D3DDevice->SetRenderState(D3DRS_ALPHABLENDENABLE, TRUE);			// αブレンドを行う
 	D3DDevice->SetRenderState(D3DRS_SRCBLEND, D3DBLEND_SRCALPHA);		// αソースカラーの指定
 	D3DDevice->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);	// αデスティネーションカラーの指定
 
@@ -335,11 +335,19 @@ void Update(void)
 		DispDebug = DispDebug ? false: true;
 	}
 
+	// 入力更新
+	UpdateInput();
+
+	// デバッグ表示処理の描画
+	if (DispDebug)
+	{
+		UpdateDebugProc();
+	}
+
+
 	// ゲームの更新
 	UpdateGame();
 
-	// 入力更新
-	UpdateInput();
 
 }
 
