@@ -8,7 +8,7 @@
 #include "input.h"
 #include "light.h"
 #include "camera.h"
-#include "game.h"
+#include "scene.h"
 #include "debugproc.h"
 
 //*****************************************************************************
@@ -283,7 +283,7 @@ HRESULT Init(HINSTANCE hInstance, HWND hWnd, BOOL bWindow)
 	D3DDevice->SetTextureStageState(0, D3DTSS_ALPHAARG2, D3DTA_CURRENT);	// ２番目のアルファ引数
 
 	// ゲームの初期化
-	InitGame();
+	InitScene();
 
 	// 入力処理の初期化
 	InitInput(hInstance, hWnd);
@@ -315,7 +315,7 @@ void Uninit(void)
 	}
 	
 	// ゲームの終了処理
-	UninitGame();
+	UninitScene();
 
 	// 入力処理の終了処理
 	UninitInput();
@@ -346,7 +346,7 @@ void Update(void)
 
 
 	// ゲームの更新
-	UpdateGame();
+	UpdateScene();
 
 
 }
@@ -364,7 +364,7 @@ void Draw(void)
 	{
 
 		// ゲームの描画
-		DrawGame();
+		DrawScene();
 
 		// デバッグ表示処理の描画
 		if(DispDebug)

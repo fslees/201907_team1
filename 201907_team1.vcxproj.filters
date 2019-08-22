@@ -19,15 +19,18 @@
     <Filter Include="ヘッダー ファイル\system">
       <UniqueIdentifier>{ad2f1a23-ce50-4f9f-9d3a-28830358a9f9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\game">
+      <UniqueIdentifier>{f1d078f7-56a9-4861-961b-af9647281f8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\game">
+      <UniqueIdentifier>{c6ec1b53-0e02-4fff-93f7-eb5de762b423}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\camera.h">
       <Filter>ヘッダー ファイル\system</Filter>
     </ClInclude>
     <ClInclude Include="source\debugproc.h">
-      <Filter>ヘッダー ファイル\system</Filter>
-    </ClInclude>
-    <ClInclude Include="source\game.h">
       <Filter>ヘッダー ファイル\system</Filter>
     </ClInclude>
     <ClInclude Include="source\input.h">
@@ -38,6 +41,12 @@
     </ClInclude>
     <ClInclude Include="source\main.h">
       <Filter>ヘッダー ファイル\system</Filter>
+    </ClInclude>
+    <ClInclude Include="source\scene.h">
+      <Filter>ヘッダー ファイル\system</Filter>
+    </ClInclude>
+    <ClInclude Include="source\game.h">
+      <Filter>ヘッダー ファイル\game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -56,8 +65,11 @@
     <ClCompile Include="source\main.cpp">
       <Filter>ソース ファイル\system</Filter>
     </ClCompile>
-    <ClCompile Include="source\game.cpp">
+    <ClCompile Include="source\scene.cpp">
       <Filter>ソース ファイル\system</Filter>
+    </ClCompile>
+    <ClCompile Include="source\game.cpp">
+      <Filter>ソース ファイル\game</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
