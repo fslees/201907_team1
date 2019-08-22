@@ -6,8 +6,6 @@
 //=============================================================================
 #include "main.h"
 #include "input.h"
-#include "light.h"
-#include "camera.h"
 #include "scene.h"
 #include "debugproc.h"
 
@@ -290,9 +288,6 @@ HRESULT Init(HINSTANCE hInstance, HWND hWnd, BOOL bWindow)
 
 	// デバッグ表示処理の初期化
 	InitDebugProc();
-
-	// ライトの初期化
-	InitLight();
 
 	return S_OK;
 }
