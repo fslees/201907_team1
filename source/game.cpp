@@ -7,6 +7,7 @@
 #include "game.h"
 #include "light.h"
 #include "camera.h"
+#include "note.h"
 
 //*****************************************************************************
 // É}ÉNÉçíËã`
