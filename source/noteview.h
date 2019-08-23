@@ -5,7 +5,7 @@
 #ifndef _NOTEVIEW_H_
 #define _NOTEVIEW_H_
 
-#include "note.h"
+class Note;
 
 //==================================================
 //マクロ定義
@@ -24,9 +24,9 @@ private:
 
 	//メンバー関数
 public:
-	NoteView();			//コンストラクタ・モデルの読み込みと初期化
-	~NoteView();		//デストラクタ・終了処理
-	void Draw();		//
+	//NoteView();			//コンストラクタ・モデルの読み込みと初期化
+	//~NoteView();		//デストラクタ・終了処理
+	//void Draw();		//
 
 
 private:

@@ -5,9 +5,9 @@
 #ifndef _NOTE_H_
 #define _NOTE_H_
 
+#include "main.h"
 #include "noteview.h"
 #include "notecontroller.h"
-#include "main.h"
 
 //==================================================
 //É}ÉNÉçíËã`

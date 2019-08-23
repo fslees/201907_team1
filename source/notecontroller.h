@@ -5,7 +5,7 @@
 #ifndef _NOTECONTROLLER_H_
 #define _NOTECONTROLLER_H_
 
-#include"note.h"
+class Note; 
 
 //==================================================
 //マクロ定義
@@ -24,8 +24,8 @@ private:
 	//メンバー関数
 public:
 	NoteController();		//
-	~NoteController();		//
-	void Update();			//
+	//~NoteController();		//
+	//void Update();			//
 
 
 private:
