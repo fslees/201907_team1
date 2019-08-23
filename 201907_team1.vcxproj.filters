@@ -48,13 +48,13 @@
     <ClInclude Include="source\game.h">
       <Filter>ヘッダー ファイル\game</Filter>
     </ClInclude>
-    <ClInclude Include="note.h">
+    <ClInclude Include="source\noteview.h">
       <Filter>ヘッダー ファイル\game</Filter>
     </ClInclude>
-    <ClInclude Include="notecontroller.h">
+    <ClInclude Include="source\notecontroller.h">
       <Filter>ヘッダー ファイル\game</Filter>
     </ClInclude>
-    <ClInclude Include="noteview.h">
+    <ClInclude Include="source\note.h">
       <Filter>ヘッダー ファイル\game</Filter>
     </ClInclude>
   </ItemGroup>
@@ -80,13 +80,13 @@
     <ClCompile Include="source\game.cpp">
       <Filter>ソース ファイル\game</Filter>
     </ClCompile>
-    <ClCompile Include="note.cpp">
+    <ClCompile Include="source\noteview.cpp">
       <Filter>ソース ファイル\game</Filter>
     </ClCompile>
-    <ClCompile Include="notecontroller.cpp">
+    <ClCompile Include="source\note.cpp">
       <Filter>ソース ファイル\game</Filter>
     </ClCompile>
-    <ClCompile Include="noteview.cpp">
+    <ClCompile Include="source\notecontroller.cpp">
       <Filter>ソース ファイル\game</Filter>
     </ClCompile>
   </ItemGroup>

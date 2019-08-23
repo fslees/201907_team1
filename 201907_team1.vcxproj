@@ -19,27 +19,27 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="note.h" />
-    <ClInclude Include="notecontroller.h" />
-    <ClInclude Include="noteview.h" />
     <ClInclude Include="source\camera.h" />
     <ClInclude Include="source\debugproc.h" />
     <ClInclude Include="source\game.h" />
     <ClInclude Include="source\input.h" />
     <ClInclude Include="source\light.h" />
     <ClInclude Include="source\main.h" />
+    <ClInclude Include="source\note.h" />
+    <ClInclude Include="source\notecontroller.h" />
+    <ClInclude Include="source\noteview.h" />
     <ClInclude Include="source\scene.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="note.cpp" />
-    <ClCompile Include="notecontroller.cpp" />
-    <ClCompile Include="noteview.cpp" />
     <ClCompile Include="source\camera.cpp" />
     <ClCompile Include="source\debugproc.cpp" />
     <ClCompile Include="source\game.cpp" />
     <ClCompile Include="source\input.cpp" />
     <ClCompile Include="source\light.cpp" />
     <ClCompile Include="source\main.cpp" />
+    <ClCompile Include="source\note.cpp" />
+    <ClCompile Include="source\notecontroller.cpp" />
+    <ClCompile Include="source\noteview.cpp" />
     <ClCompile Include="source\scene.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
