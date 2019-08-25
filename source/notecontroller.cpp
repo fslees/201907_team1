@@ -5,8 +5,7 @@
 #include "notecontroller.h"
 
 //======================================
-// 
-// 
+// コンストラクタ
 //======================================
 NoteController::NoteController()
 {
@@ -14,7 +13,7 @@ NoteController::NoteController()
 }
 
 //=====================================
-//
+//デストラクタ
 //=====================================
 NoteController::~NoteController()
 {
@@ -22,9 +21,17 @@ NoteController::~NoteController()
 }
 
 //=====================================
-//
+//更新処理
 //=====================================
 void NoteController::Update()
 {
 
 }
+
+//=====================================
+//
+//=====================================
+//D3DXVECTOR3 NoteController::GetNotePos()
+//{
+//	return note->pos;
+//}

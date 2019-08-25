@@ -15,6 +15,10 @@ Note::Note()
 
 	ctrl->note = this;
 	view->note = this;
+
+	//値の仮設定
+	pos = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+	scl = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
 }
 
 //=======================================
@@ -41,4 +45,28 @@ void Note::Update()
 void Note::Draw()
 {
 	view->Draw();
+}
+
+//=======================================
+//Get関数[pos]:返り値でposを返す
+//=======================================
+D3DXVECTOR3 Note::GetPos()
+{
+	return pos;
+}
+
+//=======================================
+//Get関数[scl]:返り値でsclを返す
+//=======================================
+D3DXVECTOR3 Note::GetScl()
+{
+	return scl;
+}
+
+//=======================================
+//Get関数[mtxWorld]:返り値でmtxWorldを返す
+//=======================================
+D3DXMATRIX Note::GetMtxWorld()
+{
+	return mtxWorld;
 }
