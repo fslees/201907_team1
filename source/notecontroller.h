@@ -19,13 +19,14 @@ class NoteController
 	//メンバー変数
 public:
 	Note * note;			//ノーツのポインタ変数
+
 private:
 
 	//メンバー関数
 public:
 	NoteController();		//
-	//~NoteController();		//
-	//void Update();			//
+	~NoteController();		//
+	void Update();			//
 
 
 private:

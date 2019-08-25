@@ -22,7 +22,8 @@ class Note
 public:
 	NoteView * view;		//viewのポインタ変数
 	NoteController *ctrl;	//controllerのポインタ変数
-	D3DXVECTOR3 pos;
+	D3DXVECTOR3 pos;		//座標
+
 
 private:
 
