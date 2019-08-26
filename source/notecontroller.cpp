@@ -25,7 +25,8 @@ NoteController::~NoteController()
 //=====================================
 void NoteController::Update()
 {
-
+	//BGM‚©‚çî•ñ‚ðŽæ“¾
+	//Note‚Éî•ñ‚ð—^‚¦‚é
 }
 
 //=====================================
@@ -33,5 +34,5 @@ void NoteController::Update()
 //=====================================
 //D3DXVECTOR3 NoteController::GetNotePos()
 //{
-//	return note->pos;
+//	return ctrl->pos;
 //}

@@ -16,6 +16,8 @@ Note::Note()
 	ctrl->note = this;
 	view->note = this;
 
+	Note *note;//インスタンス
+
 	//値の仮設定
 	pos = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
 	scl = D3DXVECTOR3(0.0f, 0.0f, 0.0f);

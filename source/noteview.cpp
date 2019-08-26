@@ -1,8 +1,9 @@
 //======================================
-// ノーツの処理[note.cpp]
+// ノーツの描画処理[noteview.cpp]
 // Author : 染矢　晃介
 //======================================
 #include "noteview.h"
+#include "note.h"
 
 //=====================================
 //コンストラクタ
@@ -17,7 +18,9 @@ NoteView::NoteView()
 //=====================================
 NoteView :: ~NoteView()
 {
-
+	//終了処理
+	//テクスチャの解放
+	//頂点バッファの解放
 }
 
 //=====================================
@@ -26,5 +29,8 @@ NoteView :: ~NoteView()
 void NoteView::Draw()
 {
 	//Noteから情報をGet
+	D3DXVECTOR3 pos = note->GetPos();
+	D3DXVECTOR3 scl = note->GetScl();
+	D3DXMATRIX  mtxWorld = note->GetMtxWorld();
 
 }
