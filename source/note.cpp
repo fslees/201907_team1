@@ -16,7 +16,6 @@ Note::Note()
 	ctrl->note = this;
 	view->note = this;
 
-
 	//ílÇÃâºê›íË
 	pos = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
 	scl = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
