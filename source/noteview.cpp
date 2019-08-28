@@ -8,10 +8,7 @@
 //=====================================
 //グローバル変数
 //=====================================
-LPD3DXBUFFER		D3DXBuffMatNote;	    // マテリアル情報へのポインタ
-DWORD				NumMatNote;				// マテリアル情報の数
-LPD3DXMESH			D3DXMeshNote;		    // メッシュ情報へのポインタ
-LPDIRECT3DTEXTURE9	D3DTextureNote;			// テクスチャへのポインタ
+
 
 
 //=====================================
@@ -20,10 +17,10 @@ LPDIRECT3DTEXTURE9	D3DTextureNote;			// テクスチャへのポインタ
 NoteView::NoteView()
 {
 	//初期化
-	LPD3DXBUFFER		D3DXBuffMatNote = NULL;	    // マテリアル情報へのポインタ
-	DWORD				NumMatNote = 0;				// マテリアル情報の数
-	LPD3DXMESH			D3DXMeshNote = NULL;		// メッシュ情報へのポインタ
-	LPDIRECT3DTEXTURE9	D3DTextureNote = NULL;		// テクスチャへのポインタ
+	D3DXBuffMatNote = NULL;	    // マテリアル情報へのポインタ
+	NumMatNote = 0;				// マテリアル情報の数
+	D3DXMeshNote = NULL;		// メッシュ情報へのポインタ
+	D3DTextureNote = NULL;		// テクスチャへのポインタ
 	LPDIRECT3DDEVICE9 pDevice = GetDevice();
 
 
@@ -72,9 +69,9 @@ NoteView :: ~NoteView()
 void NoteView::Draw()
 {
 	//Noteから情報をGet
-	D3DXVECTOR3 pos = note->GetPos();
-	D3DXVECTOR3 scl = note->GetScl();
-	D3DXMATRIX  mtxWorld = note->GetMtxWorld();
+	 pos = note->GetPos();
+	 scl = note->GetScl();
+	 mtxWorld = note->GetMtxWorld();
 
 	//
 	LPDIRECT3DDEVICE9 pDevice = GetDevice();
