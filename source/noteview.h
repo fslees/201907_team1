@@ -25,10 +25,7 @@ public:
 	Note * note;		//ノーツのポインタ変数
 
 private:
-	LPD3DXBUFFER		D3DXBuffMatNote;	    // マテリアル情報へのポインタ
-	DWORD				NumMatNote;				// マテリアル情報の数
-	LPD3DXMESH			D3DXMeshNote;		    // メッシュ情報へのポインタ
-	LPDIRECT3DTEXTURE9	D3DTextureNote;			// テクスチャへのポインタ
+	
 	D3DXVECTOR3 pos;							//位置
 	D3DXVECTOR3 scl;							//大きさ
 	D3DXMATRIX  mtxWorld ;						//ワールドマトリクス

@@ -81,7 +81,6 @@ void DrawGame()
 	camera->Set();
 
 	//ƒm[ƒc‚Ì•`‰æ
-	
 	note->Draw();
 }
 
