@@ -43,6 +43,5 @@ public:
 private:
 };
 
-
 #endif
 

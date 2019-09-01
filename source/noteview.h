@@ -35,7 +35,6 @@ public:
 	NoteView();			//コンストラクタ・モデルの読み込みと初期化
 	~NoteView();		//デストラクタ・終了処理
 	void Draw();		//描画処理
-	
 
 
 private:

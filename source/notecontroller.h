@@ -29,7 +29,7 @@ public:
 	NoteController();			//
 	~NoteController();			//
 	void Update();				//
-	//D3DXVECTOR3 GetNotePos();	//
+	
 
 private:
 };

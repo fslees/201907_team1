@@ -29,10 +29,3 @@ void NoteController::Update()
 	//Note‚Éî•ñ‚ð—^‚¦‚é
 }
 
-//=====================================
-//
-//=====================================
-//D3DXVECTOR3 NoteController::GetNotePos()
-//{
-//	return ctrl->pos;
-//}
