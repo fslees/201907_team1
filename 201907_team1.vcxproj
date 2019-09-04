@@ -28,7 +28,9 @@
     <ClInclude Include="source\note.h" />
     <ClInclude Include="source\notecontroller.h" />
     <ClInclude Include="source\noteview.h" />
+    <ClInclude Include="source\result.h" />
     <ClInclude Include="source\scene.h" />
+    <ClInclude Include="source\title.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\camera.cpp" />
@@ -40,7 +42,9 @@
     <ClCompile Include="source\note.cpp" />
     <ClCompile Include="source\notecontroller.cpp" />
     <ClCompile Include="source\noteview.cpp" />
+    <ClCompile Include="source\result.cpp" />
     <ClCompile Include="source\scene.cpp" />
+    <ClCompile Include="source\title.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
