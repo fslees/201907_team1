@@ -69,6 +69,7 @@ void UpdateGame()
 	// ライトの更新
 	UpdateLight();
 
+	note->Update();
 	
 }
 
