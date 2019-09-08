@@ -1,7 +1,7 @@
 //=============================================================================
 //
 // ノーツの管理ヘッダー処理 [notemanager.h]
-// Author : 
+// Author : GP12A332_26_田中太陽
 //
 //=============================================================================
 #ifndef _NOTEMANAGER_H_
@@ -22,7 +22,6 @@ enum LANE_NUM
 	LEFT_LANE,
 	CENTER_LANE,
 	RIGHT_LANE,
-	LANE_NUM_MAX
 };
 
 //*****************************************************************************
@@ -33,7 +32,7 @@ enum LANE_NUM
 class NoteManager
 {
 private:
-	D3DXVECTOR3	lanePos[LANE_MAX];	// レーンの座標
+	D3DXVECTOR3	lanePos[LANE_NUM_MAX];	// レーンの座標
 
 public:
 	Note		*note;
@@ -46,7 +45,7 @@ public:
 	// 第１引数：int lineNum(判定するレーン番号)
 	// 戻り値　：な　し
 	//=============================================================================
-	void SetNote(int laneNum);			
+	void SetNote(int laneNum, float scrSpeed);			
 	//=============================================================================
 	// レーンへの設置関数
 	// 第１引数：int lineNum(判定するレーン番号)
@@ -54,7 +53,7 @@ public:
 	// 戻り値　：bool型　ノーツの発生が行われたらtrue
 	//					 ノーツの発生がない場合false
 	//=============================================================================
-	bool SetNoteLane(int laneNum, int noteNum);
+	bool SetNoteLane(int laneNum, int noteNum, float scrSpeed);
 };
 
 #endif

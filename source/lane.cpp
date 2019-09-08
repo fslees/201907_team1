@@ -39,7 +39,7 @@ Lane :: Lane()
 	D3DXBuffMatLane = NULL;
 	NumMatLane = 0;
 	
-	for (int cnt = 0; cnt < LANE_MAX; cnt++)
+	for (int cnt = 0; cnt < LANE_NUM_MAX; cnt++)
 	{
 		// 位置・スケールの初期設定
 		pos[cnt] = D3DXVECTOR3(-INIT_POS_X_LANE + LANE_SPACE * cnt, INIT_POS_Y_LANE, -INIT_POS_Z_LANE);
@@ -108,7 +108,7 @@ void Lane :: Draw(void)
 	D3DXMATERIAL *pD3DXMat;
 	D3DMATERIAL9 matDef;
 
-	for (int cnt = 0; cnt < LANE_MAX; cnt++)
+	for (int cnt = 0; cnt < LANE_NUM_MAX; cnt++)
 	{
 		// ワールドマトリックスの初期化
 		D3DXMatrixIdentity(&mtxWorld);

@@ -37,6 +37,12 @@
     <Filter Include="ソース ファイル\result">
       <UniqueIdentifier>{e39d4d78-58fb-4a22-a0e7-2880dc4dc2b5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\sound">
+      <UniqueIdentifier>{517625f9-a7e8-4542-80bf-d8c4eb447bf3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\sound">
+      <UniqueIdentifier>{315448f9-178a-4c2a-9a41-eaa8810c11e4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\camera.h">
@@ -75,17 +81,26 @@
     <ClInclude Include="source\title.h">
       <Filter>ヘッダー ファイル\title</Filter>
     </ClInclude>
-    <ClInclude Include="source\bmsfile.h">
-      <Filter>ヘッダー ファイル\game</Filter>
-    </ClInclude>
-    <ClInclude Include="source\bmsmanager.h">
-      <Filter>ヘッダー ファイル\game</Filter>
-    </ClInclude>
     <ClInclude Include="source\lane.h">
       <Filter>ヘッダー ファイル\game</Filter>
     </ClInclude>
     <ClInclude Include="source\notemanager.h">
       <Filter>ヘッダー ファイル\game</Filter>
+    </ClInclude>
+    <ClInclude Include="source\hitline.h">
+      <Filter>ヘッダー ファイル\game</Filter>
+    </ClInclude>
+    <ClInclude Include="source\bmsfile.h">
+      <Filter>ヘッダー ファイル\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="source\bmsmanager.h">
+      <Filter>ヘッダー ファイル\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="source\se.h">
+      <Filter>ヘッダー ファイル\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="source\sound.h">
+      <Filter>ヘッダー ファイル\sound</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -125,16 +140,25 @@
     <ClCompile Include="source\title.cpp">
       <Filter>ソース ファイル\title</Filter>
     </ClCompile>
-    <ClCompile Include="source\bmsfile.cpp">
-      <Filter>ソース ファイル\game</Filter>
-    </ClCompile>
-    <ClCompile Include="source\bmsmanager.cpp">
-      <Filter>ソース ファイル\game</Filter>
-    </ClCompile>
     <ClCompile Include="source\notemanager.cpp">
       <Filter>ソース ファイル\game</Filter>
     </ClCompile>
     <ClCompile Include="source\lane.cpp">
+      <Filter>ソース ファイル\game</Filter>
+    </ClCompile>
+    <ClCompile Include="source\se.cpp">
+      <Filter>ソース ファイル\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="source\sound.cpp">
+      <Filter>ソース ファイル\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="source\bmsfile.cpp">
+      <Filter>ソース ファイル\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="source\bmsmanager.cpp">
+      <Filter>ソース ファイル\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="source\hitline.cpp">
       <Filter>ソース ファイル\game</Filter>
     </ClCompile>
   </ItemGroup>

@@ -12,7 +12,7 @@
 //*****************************************************************************
 // マクロ定義
 //*****************************************************************************
-#define LANE_MAX		(4)						// レーンの最大数
+#define LANE_NUM_MAX		(4)						// レーンの最大数
 // 位置の初期値
 #define INIT_POS_X_LANE		(75.0f)					// レーンの初期位置X座標
 #define INIT_POS_Y_LANE		(50.0f)					// Y座標
@@ -25,8 +25,8 @@
 class Lane
 {
 private:
-	D3DXVECTOR3			pos[LANE_MAX];				// レーンの位置
-	D3DXVECTOR3			scl[LANE_MAX];				// レーンの大きさ(スケール)
+	D3DXVECTOR3			pos[LANE_NUM_MAX];				// レーンの位置
+	D3DXVECTOR3			scl[LANE_NUM_MAX];				// レーンの大きさ(スケール)
 	bool				use;				// レーンの使用状態
 	D3DXMATRIX			mtxWorld;			// ワールドマトリックス
 
