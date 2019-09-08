@@ -10,12 +10,12 @@
 #include "notemanager.h"
 #include "bmsmanager.h"
 #include "lane.h"
+#include "hitline.h"
 //*****************************************************************************
 // マクロ定義
 //*****************************************************************************
-static const D3DXVECTOR3 INIT_POS_CAMERA = D3DXVECTOR3(0.0f, 100.0f, -500.0f);
-static const D3DXVECTOR3 INIT_POS_AT = D3DXVECTOR3(0.0f, 0.0f, 100.0f);
-
+static const D3DXVECTOR3 INIT_POS_CAMERA = D3DXVECTOR3(0.0f, 100.0f, -100.0f);
+static const D3DXVECTOR3 INIT_POS_AT = D3DXVECTOR3(0.0f, 0.0f, 200.0f);
 
 //*****************************************************************************
 // プロトタイプ宣言
@@ -29,6 +29,8 @@ static Camera	*camera;
 BmsManager		*bms;
 Lane			*lane;
 NoteManager		*note;
+HitLine			*hitLine;
+
 //*****************************************************************************
 // ゲームの初期化
 //*****************************************************************************
@@ -45,6 +47,8 @@ void InitGame()
 	note = new NoteManager;
 
 	bms = new BmsManager;
+
+	hitLine = new HitLine;
 }
 
 //*****************************************************************************
@@ -64,6 +68,8 @@ void UninitGame()
 	delete note;
 
 	delete bms;
+
+	delete hitLine;
 }
 
 //*****************************************************************************
@@ -81,10 +87,8 @@ void UpdateGame()
 	bms->Update();
 	bms->CheckSetCount(note);
 
+	// ノーツの更新
 	note->Update();
-
-	lane->Update();
-	
 }
 
 //*****************************************************************************
@@ -94,10 +98,15 @@ void DrawGame()
 {
 	// カメラのセット
 	camera->Set();
-
-	note->Draw();
-
+	
+	// レーンの描画
 	lane->Draw();
+
+	// 判定ラインの描画
+	hitLine->Draw();
+
+	// ノーツの描画
+	note->Draw();
 }
 
 
