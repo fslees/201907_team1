@@ -90,6 +90,9 @@
     <ClInclude Include="source\result.h">
       <Filter>ヘッダー ファイル\result</Filter>
     </ClInclude>
+    <ClInclude Include="source\score.h">
+      <Filter>ヘッダー ファイル\result</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\camera.cpp">
@@ -141,6 +144,9 @@
       <Filter>ソース ファイル\result</Filter>
     </ClCompile>
     <ClCompile Include="source\result.cpp">
+      <Filter>ソース ファイル\result</Filter>
+    </ClCompile>
+    <ClCompile Include="source\score.cpp">
       <Filter>ソース ファイル\result</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,10 +1,10 @@
 //=============================================================================
 //
-// 結果画面の実装 [result.cpp]
-// Author : 李尚ミン
+// スコアの実装 [score.cpp]
+// Author : 染矢　晃介
 //
 //=============================================================================
-#include "result.h"
+#include "score.h"
 #include "2Dtexmanager.h"
 #include "input.h"
 #include "scene.h"
@@ -28,31 +28,31 @@
 //*****************************************************************************
 // コンストラクタ　リザルトの読み込み
 //*****************************************************************************
-Result::Result()
+Score::Score()
 {
 	LPDIRECT3DDEVICE9 Device = GetDevice();
 
 
 	// テクスチャの読み込み
 	D3DXCreateTextureFromFile(Device,				// デバイスへのポインタ
-								TEXTURE_RESULT,		// ファイルの名前
-								&resultTex);		// 読み込むメモリー
+								TEXTURE_SCORE,		// ファイルの名前
+								&scoreTex);		// 読み込むメモリー
 
 	//頂点座標の初期化
 	/*vertexResult[0].vtx = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
 	  vertexResult[1].vtx = D3DXVECTOR3((float)(SCREEN_WIDTH), 0.0f, 0.0f);
 	  vertexResult[2].vtx = D3DXVECTOR3(0.0f, (float)(SCREEN_HEIGHT), 0.0f);
-      vertexResult[3].vtx = D3DXVECTOR3((float)(SCREEN_WIDTH), (float)(SCREEN_HEIGHT), 0.0f);*/
+	  vertexResult[3].vtx = D3DXVECTOR3((float)(SCREEN_WIDTH), (float)(SCREEN_HEIGHT), 0.0f);*/
 
 
 							//頂点の作成
-	texmanager.MakeVertex(&vertexResult[NUM_VERTEX]);
+	texmanager.MakeVertex(&vertexScore[NUM_VERTEX]);
 }
 
 //=============================================================================
 //デストラクタ
 //=============================================================================
-Result::~Result()
+Score::~Score()
 {
 	//if (resultTex != NULL)
 	//{// テクスチャの開放
@@ -64,19 +64,19 @@ Result::~Result()
 //*****************************************************************************
 // ゲームの終了
 //*****************************************************************************
-void Result::UninitResult()
+void Score::UninitScore()
 {
-	if (resultTex != NULL)
+	if (scoreTex != NULL)
 	{// テクスチャの開放
-		resultTex->Release();
-		resultTex = NULL;
+		scoreTex->Release();
+		scoreTex = NULL;
 	}
 }
 
 //*****************************************************************************
 // ゲームの更新
 //*****************************************************************************
-void  Result::UpdateResult()
+void  Score::UpdateScore()
 {
 	
 }
@@ -84,8 +84,8 @@ void  Result::UpdateResult()
 //*****************************************************************************
 // ゲーム画面の描画
 //*****************************************************************************
-void  Result::DrawResult()
+void  Score::DrawScore()
 {
-	texmanager.Draw(resultTex, &vertexResult[NUM_VERTEX]);
+	texmanager.Draw(scoreTex, &vertexScore[NUM_VERTEX]);
 
 }

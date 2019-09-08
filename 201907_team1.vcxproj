@@ -35,6 +35,7 @@
     <ClInclude Include="source\noteview.h" />
     <ClInclude Include="source\result.h" />
     <ClInclude Include="source\scene.h" />
+    <ClInclude Include="source\score.h" />
     <ClInclude Include="source\title.h" />
   </ItemGroup>
   <ItemGroup>
@@ -54,6 +55,7 @@
     <ClCompile Include="source\noteview.cpp" />
     <ClCompile Include="source\result.cpp" />
     <ClCompile Include="source\scene.cpp" />
+    <ClCompile Include="source\score.cpp" />
     <ClCompile Include="source\title.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
