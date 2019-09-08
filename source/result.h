@@ -26,6 +26,8 @@ public://メンバー変数
 	LPDIRECT3DTEXTURE9 resultTex = NULL;	//テクスチャへのポインタ
 	VERTEX_2D vertexResult[NUM_VERTEX];		//頂点情報格納ワーク
 	D3DXVECTOR3 vertexPos[NUM_VERTEX];		//頂点の位置情報
+	
+
 
 private:
 

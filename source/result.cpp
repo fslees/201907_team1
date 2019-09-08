@@ -45,7 +45,7 @@ Result::Result()
       vertexResult[3].vtx = D3DXVECTOR3((float)(SCREEN_WIDTH), (float)(SCREEN_HEIGHT), 0.0f);*/
 
 
-							//í∏ì_ÇÃçÏê¨
+	//í∏ì_ÇÃçÏê¨
 	texmanager.MakeVertex(&vertexResult[NUM_VERTEX]);
 }
 

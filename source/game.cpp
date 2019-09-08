@@ -10,6 +10,8 @@
 #include "notemanager.h"
 #include "bmsmanager.h"
 #include "lane.h"
+#include "score.h"
+
 //*****************************************************************************
 // マクロ定義
 //*****************************************************************************
@@ -29,6 +31,8 @@ static Camera	*camera;
 BmsManager		*bms;
 Lane			*lane;
 NoteManager		*note;
+Score           *score;
+
 //*****************************************************************************
 // ゲームの初期化
 //*****************************************************************************
@@ -40,11 +44,19 @@ void InitGame()
 	// ライトの初期化
 	InitLight();
 
+	//レーンの初期化
 	lane = new Lane;
 
+	//ノーツの初期化
 	note = new NoteManager;
 
+	//bmsｎ初期化
 	bms = new BmsManager;
+
+	//スコアの初期化
+	score = new Score;
+
+
 }
 
 //*****************************************************************************
@@ -64,7 +76,12 @@ void UninitGame()
 	delete note;
 
 	delete bms;
+
+	delete score;
+	
 }
+
+
 
 //*****************************************************************************
 // ゲームの更新
@@ -84,6 +101,8 @@ void UpdateGame()
 	note->Update();
 
 	lane->Update();
+
+	score->UpdateScore();
 	
 }
 
@@ -98,6 +117,9 @@ void DrawGame()
 	note->Draw();
 
 	lane->Draw();
+
+	score->DrawScore();
+
 }
 
 

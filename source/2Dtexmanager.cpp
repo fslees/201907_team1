@@ -4,6 +4,7 @@
 //========================================
 #include "2Dtexmanager.h"
 #include "main.h"
+#include "score.h"
 
 //========================================
 // 描画処理
@@ -57,3 +58,47 @@ void Texmanager::MakeVertex(VERTEX_2D vertex[NUM_VERTEX])
 	vertex[3].tex = D3DXVECTOR2(1.0f, 1.0f);
 
 }
+
+
+//============================================
+// スコア・コンボ用頂点作成
+// 引数：頂点情報格納ワーク
+//============================================
+//void Texmanager::MakeVertexNumber(VERTEX_2D vertex[NUM_VERTEX][SCORE_DIGIT],D3DXVECTOR3 pos)
+//{
+//	// 桁数分処理する
+//	for (int i = 0; i < SCORE_DIGIT; i++)
+//	{
+//		// 頂点座標の設定
+//		vertex[i][0].vtx.x = -SCORE_WIDE * i + pos.x;
+//		vertex[i][0].vtx.y = pos.y;
+//		vertex[i][0].vtx.z = 0.0f;
+//		vertex[i][1].vtx.x = -SCORE_WIDE * i + pos.x + TEXTURE_SCORE_SIZE_X;
+//		vertex[i][1].vtx.y = pos.y;
+//		vertex[i][1].vtx.z = 0.0f;
+//		vertex[i][2].vtx.x = -SCORE_WIDE * i + pos.x;
+//		vertex[i][2].vtx.y = pos.y + TEXTURE_SCORE_SIZE_Y;
+//		vertex[i][2].vtx.z = 0.0f;
+//		vertex[i][3].vtx.x = -SCORE_WIDE * i + pos.x + TEXTURE_SCORE_SIZE_X;
+//		vertex[i][3].vtx.y = pos.y + TEXTURE_SCORE_SIZE_Y;
+//		vertex[i][3].vtx.z = 0.0f;
+//
+//		// rhwの設定
+//		vertex[i][0].rhw =
+//		vertex[i][1].rhw =
+//		vertex[i][2].rhw =
+//		vertex[i][3].rhw = 1.0f;
+//
+//		// 反射光の設定
+//		vertex[i][0].diffuse = D3DCOLOR_RGBA(255, 255, 255, 255);
+//		vertex[i][1].diffuse = D3DCOLOR_RGBA(255, 255, 255, 255);
+//		vertex[i][2].diffuse = D3DCOLOR_RGBA(255, 255, 255, 255);
+//		vertex[i][3].diffuse = D3DCOLOR_RGBA(255, 255, 255, 255);
+//
+//		// テクスチャ座標の設定
+//		vertex[i][0].tex = D3DXVECTOR2(0.0f, 0.0f);
+//		vertex[i][1].tex = D3DXVECTOR2(1.0f, 0.0f);
+//		vertex[i][2].tex = D3DXVECTOR2(0.0f, 1.0f);
+//		vertex[i][3].tex = D3DXVECTOR2(1.0f, 1.0f);
+//	}
+//}
