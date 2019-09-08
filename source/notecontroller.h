@@ -29,7 +29,9 @@ public:
 	NoteController();			//
 	~NoteController();			//
 	void Update();				//
-	
+	bool SetNoteLane(int laneNum, int notesNo);
+	void SetNote(int laneNum);
+
 
 private:
 };
