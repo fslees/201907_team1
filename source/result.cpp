@@ -5,6 +5,10 @@
 //
 //=============================================================================
 #include "result.h"
+#include "2Dtexmanager.h"
+#include "input.h"
+#include "scene.h"
+
 
 //*****************************************************************************
 // マクロ定義
@@ -22,29 +26,69 @@
 
 
 //*****************************************************************************
-// ゲームの初期化
+// コンストラクタ　リザルトの読み込み
 //*****************************************************************************
-void InitResult()
+Result::Result()
 {
+	LPDIRECT3DDEVICE9 Device = GetDevice();
+
+
+	// テクスチャの読み込み
+	D3DXCreateTextureFromFile(Device,				// デバイスへのポインタ
+								TEXTURE_RESULT,		// ファイルの名前
+								&resultTex);		// 読み込むメモリー
+
+	//頂点座標の初期化
+	/*vertexResult[0].vtx = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+	  vertexResult[1].vtx = D3DXVECTOR3((float)(SCREEN_WIDTH), 0.0f, 0.0f);
+	  vertexResult[2].vtx = D3DXVECTOR3(0.0f, (float)(SCREEN_HEIGHT), 0.0f);
+      vertexResult[3].vtx = D3DXVECTOR3((float)(SCREEN_WIDTH), (float)(SCREEN_HEIGHT), 0.0f);*/
+
+
+							//頂点の作成
+	texmanager.MakeVertex(&vertexResult[NUM_VERTEX]);
+}
+
+//=============================================================================
+//デストラクタ
+//=============================================================================
+Result::~Result()
+{
+	//if (resultTex != NULL)
+	//{// テクスチャの開放
+	//	resultTex->Release();
+	//	resultTex = NULL;
+	//}
 }
 
 //*****************************************************************************
 // ゲームの終了
 //*****************************************************************************
-void UninitResult()
+void Result::UninitResult()
 {
+	if (resultTex != NULL)
+	{// テクスチャの開放
+		resultTex->Release();
+		resultTex = NULL;
+	}
 }
 
 //*****************************************************************************
 // ゲームの更新
 //*****************************************************************************
-void UpdateResult()
+void  Result::UpdateResult()
 {
+	if (GetKeyboardPress(DIK_Q))
+	{
+		SetScene(SCENE_GAME);
+	}
 }
 
 //*****************************************************************************
 // ゲーム画面の描画
 //*****************************************************************************
-void DrawResult()
+void  Result::DrawResult()
 {
+	texmanager.Draw(resultTex, &vertexResult[NUM_VERTEX]);
+
 }

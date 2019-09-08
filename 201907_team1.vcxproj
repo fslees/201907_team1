@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\2Dtexmanager.h" />
     <ClInclude Include="source\bmsfile.h" />
     <ClInclude Include="source\bmsmanager.h" />
     <ClInclude Include="source\camera.h" />
@@ -37,6 +38,7 @@
     <ClInclude Include="source\title.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\2Dtexmanager.cpp" />
     <ClCompile Include="source\bmsfile.cpp" />
     <ClCompile Include="source\bmsmanager.cpp" />
     <ClCompile Include="source\camera.cpp" />
@@ -58,7 +60,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{4917BAE1-4CA9-4F0E-8066-9DD816EE85C3}</ProjectGuid>
     <RootNamespace>My201907team1</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
