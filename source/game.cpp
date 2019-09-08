@@ -7,12 +7,13 @@
 #include "game.h"
 #include "light.h"
 #include "camera.h"
-#include "note.h"
-
+#include "notemanager.h"
+#include "bmsmanager.h"
+#include "lane.h"
 //*****************************************************************************
 // マクロ定義
 //*****************************************************************************
-static const D3DXVECTOR3 INIT_POS_CAMERA = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+static const D3DXVECTOR3 INIT_POS_CAMERA = D3DXVECTOR3(0.0f, 100.0f, -500.0f);
 static const D3DXVECTOR3 INIT_POS_AT = D3DXVECTOR3(0.0f, 0.0f, 100.0f);
 
 
@@ -24,10 +25,10 @@ void InitCamera();
 //*****************************************************************************
 // グローバル変数
 //*****************************************************************************
-static Camera *camera;
-Note *note;
-
-
+static Camera	*camera;
+BmsManager		*bms;
+Lane			*lane;
+NoteManager		*note;
 //*****************************************************************************
 // ゲームの初期化
 //*****************************************************************************
@@ -39,8 +40,11 @@ void InitGame()
 	// ライトの初期化
 	InitLight();
 
-	//ノーツの初期化
-	note = new Note();
+	lane = new Lane;
+
+	note = new NoteManager;
+
+	bms = new BmsManager;
 }
 
 //*****************************************************************************
@@ -55,7 +59,11 @@ void UninitGame()
 	UninitLight();
 
 	//noteの終了
+	delete lane;
+
 	delete note;
+
+	delete bms;
 }
 
 //*****************************************************************************
@@ -69,7 +77,13 @@ void UpdateGame()
 	// ライトの更新
 	UpdateLight();
 
+	// 譜面データの更新
+	bms->Update();
+	bms->CheckSetCount(note);
+
 	note->Update();
+
+	lane->Update();
 	
 }
 
@@ -81,8 +95,9 @@ void DrawGame()
 	// カメラのセット
 	camera->Set();
 
-	//ノーツの描画
 	note->Draw();
+
+	lane->Draw();
 }
 
 

@@ -19,28 +19,36 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\bmsfile.h" />
+    <ClInclude Include="source\bmsmanager.h" />
     <ClInclude Include="source\camera.h" />
     <ClInclude Include="source\debugproc.h" />
     <ClInclude Include="source\game.h" />
     <ClInclude Include="source\input.h" />
+    <ClInclude Include="source\lane.h" />
     <ClInclude Include="source\light.h" />
     <ClInclude Include="source\main.h" />
     <ClInclude Include="source\note.h" />
     <ClInclude Include="source\notecontroller.h" />
+    <ClInclude Include="source\notemanager.h" />
     <ClInclude Include="source\noteview.h" />
     <ClInclude Include="source\result.h" />
     <ClInclude Include="source\scene.h" />
     <ClInclude Include="source\title.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\bmsfile.cpp" />
+    <ClCompile Include="source\bmsmanager.cpp" />
     <ClCompile Include="source\camera.cpp" />
     <ClCompile Include="source\debugproc.cpp" />
     <ClCompile Include="source\game.cpp" />
     <ClCompile Include="source\input.cpp" />
+    <ClCompile Include="source\lane.cpp" />
     <ClCompile Include="source\light.cpp" />
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="source\note.cpp" />
     <ClCompile Include="source\notecontroller.cpp" />
+    <ClCompile Include="source\notemanager.cpp" />
     <ClCompile Include="source\noteview.cpp" />
     <ClCompile Include="source\result.cpp" />
     <ClCompile Include="source\scene.cpp" />
@@ -50,7 +58,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{4917BAE1-4CA9-4F0E-8066-9DD816EE85C3}</ProjectGuid>
     <RootNamespace>My201907team1</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

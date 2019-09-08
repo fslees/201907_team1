@@ -25,7 +25,8 @@ public:
 	D3DXVECTOR3 pos;			//座標(コンストラクタ内で値の仮初期化）
 	D3DXVECTOR3 scl;			//大きさ(コンストラクタ内で値の仮初期化）
 	D3DXMATRIX	mtxWorld;		//ワールドマトリクス
-	
+	float		move;			//移動量
+	bool		use;			//使用状態
 
 private:
 
