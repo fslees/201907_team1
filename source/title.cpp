@@ -7,6 +7,7 @@
 #include "title.h"
 #include "scene.h"
 #include "input.h"
+#include "inputmanager.h"
 
 //*****************************************************************************
 // ƒOƒ[ƒoƒ‹•Ï”

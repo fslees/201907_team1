@@ -15,6 +15,7 @@
 #include "input.h"
 #include "scene.h"
 #include "hitline.h"
+#include "inputmanager.h"
 
 //*****************************************************************************
 // マクロ定義

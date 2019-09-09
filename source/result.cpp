@@ -7,6 +7,7 @@
 #include "result.h"
 #include "input.h"
 #include "scene.h"
+#include "inputmanager.h"
 
 
 //*****************************************************************************

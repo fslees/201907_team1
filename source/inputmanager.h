@@ -13,8 +13,35 @@
 // マクロ定義
 //=================================
 
+// ボタン入力の種類
+enum ACTION_NAME
+{
+	// 左レーンのボタン
+	HIT_LEFT_LANE,
+	// 真ん中レーンのボタン
+	HIT_CENTER_LANE,
+	// 右レーンのボタン
+	HIT_RIGHT_LANE,
+	// 左方向の入力
+	PUSH_LEFT,
+	// 上方向の入力
+	PUSH_UP,
+	// 右方向の入力
+	PUSH_RIGHT,
+	// 遷移ボタンの入力
+	HIT_START,
+	// ボタンアクションの数
+	ACTION_MAX
+};
+
 
 //===============================
 //プロトタイプ宣言
 //===============================
+
+// 入力を確認する関数
+// param[in] action ボタンのenum要素
+// return	 入力された場合にtrue
+bool GetInput(int action);
+
 #endif
