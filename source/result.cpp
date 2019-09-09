@@ -32,7 +32,6 @@ Result::Result()
 {
 	LPDIRECT3DDEVICE9 Device = GetDevice();
 
-
 	// テクスチャの読み込み
 	D3DXCreateTextureFromFile(Device,				// デバイスへのポインタ
 								TEXTURE_RESULT,		// ファイルの名前
@@ -54,11 +53,11 @@ Result::Result()
 //=============================================================================
 Result::~Result()
 {
-	//if (resultTex != NULL)
-	//{// テクスチャの開放
-	//	resultTex->Release();
-	//	resultTex = NULL;
-	//}
+	if (resultTex != NULL)
+	{// テクスチャの開放
+		resultTex->Release();
+		resultTex = NULL;
+	}
 }
 
 //*****************************************************************************
@@ -66,11 +65,11 @@ Result::~Result()
 //*****************************************************************************
 void Result::UninitResult()
 {
-	if (resultTex != NULL)
-	{// テクスチャの開放
-		resultTex->Release();
-		resultTex = NULL;
-	}
+	//if (resultTex != NULL)
+	//{// テクスチャの開放
+	//	resultTex->Release();
+	//	resultTex = NULL;
+	//}
 }
 
 //*****************************************************************************

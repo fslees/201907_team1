@@ -12,7 +12,7 @@
 //*****************************************************************************
 // マクロ定義
 //*****************************************************************************
-#define NAME_INIT_SCENE (SCENE_GAME)
+#define NAME_INIT_SCENE (SCENE_RESULT)
 
 //*****************************************************************************
 // プロトタイプ宣言
@@ -23,7 +23,7 @@
 // グローバル変数
 //*****************************************************************************
 static int SceneState;
-Result result;
+Result *result;
 
 
 //*****************************************************************************
@@ -45,7 +45,7 @@ void InitScene()
 		break;
 
 	case SCENE_RESULT:
-		
+		result = new Result;
 		break;
 	
 	default:
@@ -70,7 +70,8 @@ void UninitScene()
 		break;
 
 	case SCENE_RESULT:
-		result.UninitResult();
+		//result.UninitResult();
+		delete result;
 		break;
 
 	default:
@@ -96,7 +97,7 @@ void UpdateScene()
 		break;
 
 	case SCENE_RESULT:
-		result.UpdateResult();
+		result->UpdateResult();
 		break;
 
 	default:
@@ -122,7 +123,7 @@ void DrawScene()
 		break;
 
 	case SCENE_RESULT:
-		result.DrawResult();
+		result->DrawResult();
 		break;
 
 	default:

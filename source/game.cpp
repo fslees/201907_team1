@@ -11,6 +11,7 @@
 #include "bmsmanager.h"
 #include "lane.h"
 #include "score.h"
+#include "result.h"
 
 //*****************************************************************************
 // マクロ定義
@@ -55,7 +56,6 @@ void InitGame()
 
 	//スコアの初期化
 	score = new Score;
-
 
 }
 
@@ -104,6 +104,7 @@ void UpdateGame()
 
 	score->UpdateScore();
 	
+
 }
 
 //*****************************************************************************

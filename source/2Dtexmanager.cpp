@@ -41,9 +41,9 @@ void Texmanager::MakeVertex(VERTEX_2D vertex[NUM_VERTEX])
 
 	// テクスチャのパースペクティブコレクト用
 	vertex[0].rhw =
-		vertex[1].rhw =
-		vertex[2].rhw =
-		vertex[3].rhw = 1.0f;
+	vertex[1].rhw =
+	vertex[2].rhw =
+	vertex[3].rhw = 1.0f;
 
 	// 反射光の設定
 	vertex[0].diffuse = D3DCOLOR_RGBA(255, 255, 255, 255);
