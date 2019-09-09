@@ -5,7 +5,7 @@
 #include "notecontroller.h"
 #include "notemanager.h"
 #include "note.h"
-#include "input.h"
+#include "inputmanager.h"
 
 //======================================
 //マクロ定義
@@ -60,17 +60,17 @@ void NoteController::Update()
 void NoteController::InputNote()
 {
 	// 左レーンの操作
-	if (GetKeyboardPress(DIK_A))
+	if (GetInput(HIT_LEFT_LANE))
 	{
 		CheckHit(note, D3DXVECTOR3(-NOTE_SET_POS_X, NOTE_SET_POS_Y, NOTE_SET_POS_Z));
 	}
 	// 中央レーンの操作
-	if (GetKeyboardPress(DIK_S))
+	if (GetInput(HIT_CENTER_LANE))
 	{
 		CheckHit(note, D3DXVECTOR3(0, NOTE_SET_POS_Y, NOTE_SET_POS_Z));
 	}
 	// 右レーンの操作
-	if (GetKeyboardPress(DIK_D))
+	if (GetInput(HIT_RIGHT_LANE))
 	{
 		CheckHit(note, D3DXVECTOR3(NOTE_SET_POS_X, NOTE_SET_POS_Y, NOTE_SET_POS_Z));
 	}

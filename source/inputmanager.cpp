@@ -19,7 +19,7 @@ bool GetInput(int action)
 		return (GetKeyboardTrigger(DIK_A) || IsButtonTriggered(0, BUTTON_C));
 	break;
 	case HIT_CENTER_LANE:
-		return (GetKeyboardTrigger(DIK_S) || IsButtonTriggered(0, BUTTON_X));
+		return (GetKeyboardTrigger(DIK_S) || IsButtonTriggered(0, BUTTON_A) || IsButtonTriggered(0, BUTTON_X));
 		break;
 	case HIT_RIGHT_LANE:
 		return (GetKeyboardTrigger(DIK_D) || IsButtonTriggered(0, BUTTON_B));
