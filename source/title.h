@@ -9,13 +9,18 @@
 
 #include "main.h"
 
-//
-void InitTitle();
-//
+//===========================
+//プロトタイプ宣言
+//===========================
+//初期化
+HRESULT InitTitle();
+//終了処理
 void UninitTitle();
-//
+//更新処理
 void UpdateTitle();
-//
+//描画処理
 void DrawTitle();
+//頂点作成処理
+void MakeVertexTitle();
 
 #endif

@@ -12,7 +12,7 @@
 //*****************************************************************************
 // マクロ定義
 //*****************************************************************************
-#define NAME_INIT_SCENE (SCENE_RESULT)
+#define NAME_INIT_SCENE (SCENE_TITLE)
 
 //*****************************************************************************
 // プロトタイプ宣言
@@ -89,7 +89,7 @@ void UpdateScene()
 	switch (SceneState)
 	{
 	case SCENE_TITLE:
-		UpdateScene();
+		UpdateTitle();
 		break;
 
 	case SCENE_GAME:
