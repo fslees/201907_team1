@@ -8,6 +8,7 @@
 #include "game.h"
 #include "result.h"
 #include "title.h"
+#include "tutorial.h"
 
 //*****************************************************************************
 // É}ÉNÉçíËã`
@@ -31,13 +32,14 @@ static int SceneState = NAME_INIT_SCENE;
 //*****************************************************************************
 void InitScene()
 {
-	
-	
-
 	switch (SceneState)
 	{
 	case SCENE_TITLE:
 		InitTitle();
+		break;
+
+	case SCENE_TUTORIAL:
+		InitTutorial();
 		break;
 
 	case SCENE_GAME:
@@ -51,7 +53,6 @@ void InitScene()
 	default:
 		break;
 	}
-
 }
 
 //*****************************************************************************
@@ -63,6 +64,10 @@ void UninitScene()
 	{
 	case SCENE_TITLE:
 		UninitTitle();
+		break;
+
+	case SCENE_TUTORIAL:
+		UninitTutorial();
 		break;
 
 	case SCENE_GAME:
@@ -78,7 +83,6 @@ void UninitScene()
 
 		break;
 	}
-
 }
 
 //*****************************************************************************
@@ -92,6 +96,10 @@ void UpdateScene()
 		UpdateTitle();
 		break;
 
+	case SCENE_TUTORIAL:
+		UpdateTutorial();
+		break;
+
 	case SCENE_GAME:
 		UpdateGame();
 		break;
@@ -103,8 +111,6 @@ void UpdateScene()
 	default:
 		break;
 	}
-
-
 }
 
 //*****************************************************************************
@@ -118,6 +124,10 @@ void DrawScene()
 		DrawTitle();
 		break;
 
+	case SCENE_TUTORIAL:
+		DrawTutorial();
+		break;
+
 	case SCENE_GAME:
 		DrawGame();
 		break;
@@ -129,7 +139,6 @@ void DrawScene()
 	default:
 		break;
 	}
-
 }
 
 

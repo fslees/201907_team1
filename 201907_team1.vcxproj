@@ -40,6 +40,7 @@
     <ClInclude Include="source\se.h" />
     <ClInclude Include="source\sound.h" />
     <ClInclude Include="source\title.h" />
+    <ClInclude Include="source\tutorial.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\2Dtexmanager.cpp" />
@@ -63,6 +64,7 @@
     <ClCompile Include="source\se.cpp" />
     <ClCompile Include="source\sound.cpp" />
     <ClCompile Include="source\title.cpp" />
+    <ClCompile Include="source\tutorial.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

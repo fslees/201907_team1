@@ -12,18 +12,19 @@
 typedef enum
 {
 	SCENE_TITLE,
+	SCENE_TUTORIAL,
 	SCENE_GAME,
 	SCENE_RESULT,
 	SCENE_MAX
 }NameScene;
 
-//
+// シーンの初期化
 void InitScene();
-//
+// シーンの終了
 void UninitScene();
-//
+// シーンの更新
 void UpdateScene();
-//
+// シーンの描画
 void DrawScene();
 
 // シーン遷移の処理

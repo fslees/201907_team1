@@ -25,9 +25,6 @@
     <Filter Include="ヘッダー ファイル\result">
       <UniqueIdentifier>{b876cac7-cfcf-4725-b68c-6c182b3ef7e0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダー ファイル\system">
-      <UniqueIdentifier>{ad2f1a23-ce50-4f9f-9d3a-28830358a9f9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ヘッダー ファイル\title">
       <UniqueIdentifier>{1ba8fc45-a96a-47e7-8605-525b83d58464}</UniqueIdentifier>
     </Filter>
@@ -42,6 +39,15 @@
     </Filter>
     <Filter Include="ヘッダー ファイル\sound">
       <UniqueIdentifier>{315448f9-178a-4c2a-9a41-eaa8810c11e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\tutorial">
+      <UniqueIdentifier>{9478c095-8679-4ea7-a378-18b98961460c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\tutorial">
+      <UniqueIdentifier>{835563f0-aa3e-4fdd-95dd-37e3588d3bcd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\system">
+      <UniqueIdentifier>{ad2f1a23-ce50-4f9f-9d3a-28830358a9f9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -108,6 +114,9 @@
     <ClInclude Include="source\score.h">
       <Filter>ヘッダー ファイル\result</Filter>
     </ClInclude>
+    <ClInclude Include="source\tutorial.h">
+      <Filter>ヘッダー ファイル\tutorial</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\camera.cpp">
@@ -172,6 +181,9 @@
     </ClCompile>
     <ClCompile Include="source\score.cpp">
       <Filter>ソース ファイル\result</Filter>
+    </ClCompile>
+    <ClCompile Include="source\tutorial.cpp">
+      <Filter>ソース ファイル\tutorial</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
