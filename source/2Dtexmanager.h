@@ -18,6 +18,8 @@ public: //メンバー変数
 private:
 
 public: //メンバー関数
+
+
 	void Draw(LPDIRECT3DTEXTURE9 p, VERTEX_2D vertex[NUM_VERTEX]); //描画処理
 
 	void MakeVertex(VERTEX_2D vertex[NUM_VERTEX]);  //頂点の作成

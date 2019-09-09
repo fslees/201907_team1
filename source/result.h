@@ -17,35 +17,17 @@
 
 
 //===============================
-//クラス定義
+//プロトタイプ宣言
 //===============================
-class Result
-{
-public://メンバー変数
-	Texmanager texmanager;					//テクスチャのマネージャーのメンバー変数
-	LPDIRECT3DTEXTURE9 resultTex = NULL;	//テクスチャへのポインタ
-	VERTEX_2D vertexResult[NUM_VERTEX];		//頂点情報格納ワーク
-	D3DXVECTOR3 vertexPos[NUM_VERTEX];		//頂点の位置情報
-	
 
-
-private:
-
-
-public://メンバー関数
-	Result();//テクスチャの読み込み
-
-	~Result();//テクスチャの解放
-
+	//初期化
+	HRESULT InitResult();
+	//終了処理
 	void UninitResult();
-	//
+	//更新処理
 	void UpdateResult();
-	//
+	//描画処理
 	void DrawResult();
-
-private:
-
-};
-
-
+	//頂点の作成
+	void MakeVertex();
 #endif

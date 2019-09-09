@@ -291,6 +291,7 @@ HRESULT Init(HINSTANCE hInstance, HWND hWnd, BOOL bWindow)
 	// デバッグ表示処理の初期化
 	InitDebugProc();
 
+	
 	return S_OK;
 }
 

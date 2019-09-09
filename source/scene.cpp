@@ -23,7 +23,7 @@
 // ƒOƒ[ƒoƒ‹•Ï”
 //*****************************************************************************
 static int SceneState;
-Result *result;
+
 
 
 //*****************************************************************************
@@ -45,7 +45,7 @@ void InitScene()
 		break;
 
 	case SCENE_RESULT:
-		result = new Result;
+		InitResult();
 		break;
 	
 	default:
@@ -71,7 +71,7 @@ void UninitScene()
 
 	case SCENE_RESULT:
 		//result.UninitResult();
-		delete result;
+		UninitResult();
 		break;
 
 	default:
@@ -97,7 +97,7 @@ void UpdateScene()
 		break;
 
 	case SCENE_RESULT:
-		result->UpdateResult();
+		UpdateResult();
 		break;
 
 	default:
@@ -123,7 +123,7 @@ void DrawScene()
 		break;
 
 	case SCENE_RESULT:
-		result->DrawResult();
+		DrawResult();
 		break;
 
 	default:
