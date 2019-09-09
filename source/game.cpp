@@ -15,6 +15,7 @@
 #include "input.h"
 #include "scene.h"
 #include "hitline.h"
+
 //*****************************************************************************
 // マクロ定義
 //*****************************************************************************
@@ -47,16 +48,16 @@ void InitGame()
 	// ライトの初期化
 	InitLight();
 
-	//レーンの初期化
+	// レーンの初期化
 	lane = new Lane;
 
-	//ノーツの初期化
+	// ノーツの初期化
 	note = new NoteManager;
 
-	//bmsｎ初期化
+	// bmsの初期化
 	bms = new BmsManager;
 
-	//スコアの初期化
+	// スコアの初期化
 	score = new Score;
   
 	hitLine = new HitLine;
@@ -73,7 +74,7 @@ void UninitGame()
 	// ライトの終了
 	UninitLight();
 
-	//noteの終了
+	// noteの終了
 	delete lane;
 
 	delete note;
