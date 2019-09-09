@@ -22,7 +22,7 @@
 //*****************************************************************************
 // ÉOÉçÅ[ÉoÉãïœêî
 //*****************************************************************************
-static int SceneState;
+static int SceneState = NAME_INIT_SCENE;
 
 
 
@@ -32,7 +32,7 @@ static int SceneState;
 void InitScene()
 {
 	
-	SceneState = NAME_INIT_SCENE;
+	
 
 	switch (SceneState)
 	{

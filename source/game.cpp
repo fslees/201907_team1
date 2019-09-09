@@ -12,6 +12,8 @@
 #include "lane.h"
 #include "score.h"
 #include "result.h"
+#include "input.h"
+#include "scene.h"
 
 //*****************************************************************************
 // マクロ定義
@@ -104,6 +106,12 @@ void UpdateGame()
 
 	score->UpdateScore();
 	
+	//ゲーム遷移
+	if (GetKeyboardTrigger(DIK_1))
+	{
+		SetScene(2);
+	}
+
 
 }
 

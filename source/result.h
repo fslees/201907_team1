@@ -13,7 +13,7 @@
 //=================================
 // É}ÉNÉçíËã`
 //=================================
-#define TEXTURE_RESULT "data/TEXTURE/field000.jpg"
+#define TEXTURE_RESULT "data/TEXTURE/result.png"
 
 
 //===============================
