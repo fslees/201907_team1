@@ -5,11 +5,12 @@
 //
 //=============================================================================
 #include "bmsmanager.h"
+#include "sound.h"
 
 //*****************************************************************************
 // マクロ定義
 //*****************************************************************************
-#define LANE_MAX		(3)
+#define BMS_CHANNEL_MAX		(6)		// BMSファイルのチャンネル数
 
 //*****************************************************************************
 // プロトタイプ宣言
@@ -19,7 +20,6 @@
 // グローバル変数
 //*****************************************************************************
 const int BmsManager::index[BMS_CHANNEL_MAX] = { 0,2,4,1,3,5 };
-D3DXVECTOR3	LinePos[LANE_MAX];
 
 //====================================================================
 // コンストラクタ
@@ -27,21 +27,18 @@ D3DXVECTOR3	LinePos[LANE_MAX];
 BmsManager::BmsManager()
 {
 	// 各変数の初期化
-	scrMulti = 1.0f;
+	scrMulti = 5.0f;
 	startTime = 0;
 	globalFreq = 0;
 	elapsedTime = 0;
 	scrZ = 0;
 	ZeroMemory(&startNum, sizeof(startNum));
 
-	//出現位置のposの初期化
-	for (int i = 0; i < LANE_MAX; i++)
-	{
-		LinePos[i] = D3DXVECTOR3(50 - 50 * i, 0, 0);
-	}
-
 	// BMSロード
 	bms.Load("data/BMS/test2.bms");
+
+	// サウンドのロード
+	BGM = LoadSound(BGM_01);
 
 	// マシンの周波数を取得
 	LARGE_INTEGER freq;
@@ -77,7 +74,10 @@ void BmsManager::Update()
 
 	// BMSカウンタが曲の最大カウント+1小節を超えたら終了
 	if (bms.GetMaxCount() + BMS_RESOLUTION <= nowCount)
+	{
+		StopSound(BGM);
 		return;
+	}
 
 	// BGMをタイミングにあわせて再生する
 	for (int i = startNum[BMS_BACKMUSIC]; i < bms.GetObjeNum(BMS_BACKMUSIC); i++) {
@@ -85,8 +85,9 @@ void BmsManager::Update()
 		if (nowCount < b->lTime)
 			break;
 		if (b->bFlag) {
-			if (nowCount >= b->lTime) 
+			if (nowCount >= (b->lTime * (scrMulti / 2)))
 			{
+				PlaySound(BGM,0);
 				b->bFlag = FALSE;				// 通過したBGMフラグをfalse
 				startNum[BMS_BACKMUSIC] = i + 1;
 			}
@@ -109,7 +110,7 @@ bool BmsManager::CheckSetCount(NoteManager *note)
 			LPBMSDATA b = bms.GetObje(0x11 + index[j], i);
 			if (nowCount > b->lTime)
 			{
-				note->SetNote(j);
+				note->SetNote(j, scrMulti);
 			}
 
 			int objZ = (int)((double)b->lTime / (BMS_RESOLUTION / (scrMulti * 192)));

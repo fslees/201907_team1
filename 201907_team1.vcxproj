@@ -25,6 +25,7 @@
     <ClInclude Include="source\camera.h" />
     <ClInclude Include="source\debugproc.h" />
     <ClInclude Include="source\game.h" />
+    <ClInclude Include="source\hitline.h" />
     <ClInclude Include="source\input.h" />
     <ClInclude Include="source\lane.h" />
     <ClInclude Include="source\light.h" />
@@ -36,6 +37,8 @@
     <ClInclude Include="source\result.h" />
     <ClInclude Include="source\scene.h" />
     <ClInclude Include="source\score.h" />
+    <ClInclude Include="source\se.h" />
+    <ClInclude Include="source\sound.h" />
     <ClInclude Include="source\title.h" />
   </ItemGroup>
   <ItemGroup>
@@ -45,6 +48,7 @@
     <ClCompile Include="source\camera.cpp" />
     <ClCompile Include="source\debugproc.cpp" />
     <ClCompile Include="source\game.cpp" />
+    <ClCompile Include="source\hitline.cpp" />
     <ClCompile Include="source\input.cpp" />
     <ClCompile Include="source\lane.cpp" />
     <ClCompile Include="source\light.cpp" />
@@ -56,6 +60,8 @@
     <ClCompile Include="source\result.cpp" />
     <ClCompile Include="source\scene.cpp" />
     <ClCompile Include="source\score.cpp" />
+    <ClCompile Include="source\se.cpp" />
+    <ClCompile Include="source\sound.cpp" />
     <ClCompile Include="source\title.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -110,6 +116,10 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>

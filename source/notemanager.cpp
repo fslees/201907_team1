@@ -7,18 +7,11 @@
 #include "notemanager.h"
 #include "lane.h"
 #include "assert.h"
+
 //*****************************************************************************
 // マクロ定義
 //*****************************************************************************
-// ノーツの初期位置
-#define NOTE_INIT_POS_X		(0.0f)
-#define NOTE_INIT_POS_Y		(50.0f)
-#define NOTE_INIT_POS_Z		(100.0f)
-#define NOTE_MAX			(50)
-// ノーツ発生位置
-#define NOTE_SET_POS_X		(50.0f)
-#define NOTE_SET_POS_Y		(50.0f)
-#define NOTE_SET_POS_Z		(400.0f)
+#define NOTE_MAX		(50)
 
 //*****************************************************************************
 // プロトタイプ宣言
@@ -35,7 +28,7 @@ NoteManager::NoteManager()
 {
 	note = new Note[NOTE_MAX];
 
-	for (int i = 0; i < LANE_MAX; i++)
+	for (int i = 0; i < LANE_NUM_MAX; i++)
 	{
 		lanePos[i].x = -NOTE_SET_POS_X + (LANE_SPACE* i);
 		lanePos[i].y = NOTE_SET_POS_Y;
@@ -60,7 +53,6 @@ void NoteManager::Update(void)
 	{
 		if (note[i].use)
 		{
-			note[i].pos.z -= 5.0f;
 			note[i].Update();
 		}
 	}
@@ -83,18 +75,18 @@ void NoteManager::Draw(void)
 //=============================================================================
 // ノーツの設置関数
 //=============================================================================
-void NoteManager::SetNote(int laneNum)
+void NoteManager::SetNote(int laneNum, float scrSpeed)
 {
 	for (int i = 0; i < NOTE_MAX; i++)
 	{
-		if (SetNoteLane(laneNum, i)) return;
+		if (SetNoteLane(laneNum, i, scrSpeed)) return;
 	}
 }
 
 //=============================================================================
 // ノーツのレーンへの設置関数
 //=============================================================================
-bool NoteManager::SetNoteLane(int laneNum, int noteNum)
+bool NoteManager::SetNoteLane(int laneNum, int noteNum, float scrSpeed)
 {
 	if (!note[noteNum].use)
 	{
@@ -114,6 +106,7 @@ bool NoteManager::SetNoteLane(int laneNum, int noteNum)
 			break;
 		}
 
+		note[noteNum].move = scrSpeed;
 		note[noteNum].use = true;
 
 		return true;
@@ -121,5 +114,3 @@ bool NoteManager::SetNoteLane(int laneNum, int noteNum)
 
 	return false;
 }
-
-

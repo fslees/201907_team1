@@ -5,6 +5,8 @@
 //
 //=============================================================================
 #include "main.h"
+#include "sound.h"
+#include "se.h"
 #include "input.h"
 #include "scene.h"
 #include "debugproc.h"
@@ -282,6 +284,12 @@ HRESULT Init(HINSTANCE hInstance, HWND hWnd, BOOL bWindow)
 	D3DDevice->SetTextureStageState(0, D3DTSS_ALPHAARG2, D3DTA_CURRENT);	// ２番目のアルファ引数
 
 
+	// サウンドの初期化
+	InitSound(hWnd);
+
+	// SEの初期化
+	InitSE(hWnd);
+
 	// ゲームの初期化
 	InitScene();
 
@@ -318,9 +326,14 @@ void Uninit(void)
 	// 入力処理の終了処理
 	UninitInput();
 
+	// サウンドの終了処理
+	UninitSound();
+
+	// SEの終了処理
+	UninitSE();
+	   
 	// デバッグ表示処理の終了処理
 	UninitDebugProc();
-
 }
 
 //=============================================================================
@@ -345,8 +358,6 @@ void Update(void)
 
 	// ゲームの更新
 	UpdateScene();
-
-
 }
 
 //=============================================================================
