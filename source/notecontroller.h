@@ -5,7 +5,7 @@
 #ifndef _NOTECONTROLLER_H_
 #define _NOTECONTROLLER_H_
 
-class Note; 
+class Note;
 #include "main.h"
 
 
@@ -29,9 +29,13 @@ public:
 	NoteController();			//
 	~NoteController();			//
 	void Update();				//
-	bool SetNoteLane(int laneNum, int notesNo);
-	void SetNote(int laneNum);
-
+	//=============================================================
+	// ノーツの操作関数
+	// 引　数：なし
+	// 戻り値：なし
+	// 説　明：ラインごとのノーツ操作判定
+	//=============================================================
+	void InputNote();			
 
 private:
 };
