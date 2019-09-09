@@ -34,7 +34,6 @@ enum ChannelNum
 class BmsManager
 {
 private:
-	BmsFile					bms;				// BMS（譜面データ）
 	LONG					nowCount;			// 現在の時間
 	LONGLONG				startTime;			// ゲーム開始時の時間(高解像度タイマー)
 	LONGLONG				globalFreq;			// マシンの１秒間のカウント数(高解像度タイマー)
@@ -46,6 +45,7 @@ private:
 	LPDIRECTSOUNDBUFFER8	BGM;				// BGMのサウンドバッファー
 
 public:	
+	BmsFile					bms;				// BMS（譜面データ）
 	int						offZ;				// スクロールを考慮したZ座標
 
 												//====================================================================
