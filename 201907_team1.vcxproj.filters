@@ -75,9 +75,6 @@
     <ClInclude Include="source\note.h">
       <Filter>ヘッダー ファイル\game</Filter>
     </ClInclude>
-    <ClInclude Include="source\result.h">
-      <Filter>ヘッダー ファイル\result</Filter>
-    </ClInclude>
     <ClInclude Include="source\title.h">
       <Filter>ヘッダー ファイル\title</Filter>
     </ClInclude>
@@ -101,6 +98,15 @@
     </ClInclude>
     <ClInclude Include="source\sound.h">
       <Filter>ヘッダー ファイル\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="source\2Dtexmanager.h">
+      <Filter>ヘッダー ファイル\result</Filter>
+    </ClInclude>
+    <ClInclude Include="source\result.h">
+      <Filter>ヘッダー ファイル\result</Filter>
+    </ClInclude>
+    <ClInclude Include="source\score.h">
+      <Filter>ヘッダー ファイル\result</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -134,9 +140,6 @@
     <ClCompile Include="source\notecontroller.cpp">
       <Filter>ソース ファイル\game</Filter>
     </ClCompile>
-    <ClCompile Include="source\result.cpp">
-      <Filter>ソース ファイル\result</Filter>
-    </ClCompile>
     <ClCompile Include="source\title.cpp">
       <Filter>ソース ファイル\title</Filter>
     </ClCompile>
@@ -160,6 +163,15 @@
     </ClCompile>
     <ClCompile Include="source\hitline.cpp">
       <Filter>ソース ファイル\game</Filter>
+    </ClCompile>
+    <ClCompile Include="source\2Dtexmanager.cpp">
+      <Filter>ソース ファイル\result</Filter>
+    </ClCompile>
+    <ClCompile Include="source\result.cpp">
+      <Filter>ソース ファイル\result</Filter>
+    </ClCompile>
+    <ClCompile Include="source\score.cpp">
+      <Filter>ソース ファイル\result</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

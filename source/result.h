@@ -8,14 +8,26 @@
 #define _RESULT_H_
 
 #include "main.h"
+#include "2Dtexmanager.h"
 
-//
-void InitResult();
-//
-void UninitResult();
-//
-void UpdateResult();
-//
-void DrawResult();
+//=================================
+// マクロ定義
+//=================================
+#define TEXTURE_RESULT "data/TEXTURE/result.png"
 
+
+//===============================
+//プロトタイプ宣言
+//===============================
+
+	//初期化
+	HRESULT InitResult();
+	//終了処理
+	void UninitResult();
+	//更新処理
+	void UpdateResult();
+	//描画処理
+	void DrawResult();
+	//頂点の作成
+	void MakeVertex();
 #endif

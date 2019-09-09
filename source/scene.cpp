@@ -12,7 +12,7 @@
 //*****************************************************************************
 // マクロ定義
 //*****************************************************************************
-#define NAME_INIT_SCENE (SCENE_GAME)
+#define NAME_INIT_SCENE (SCENE_TITLE)
 
 //*****************************************************************************
 // プロトタイプ宣言
@@ -22,7 +22,7 @@
 //*****************************************************************************
 // グローバル変数
 //*****************************************************************************
-static int SceneState;
+static int SceneState = NAME_INIT_SCENE;
 
 
 
@@ -32,7 +32,7 @@ static int SceneState;
 void InitScene()
 {
 	
-	SceneState = NAME_INIT_SCENE;
+	
 
 	switch (SceneState)
 	{
@@ -70,6 +70,7 @@ void UninitScene()
 		break;
 
 	case SCENE_RESULT:
+		//result.UninitResult();
 		UninitResult();
 		break;
 
@@ -88,7 +89,7 @@ void UpdateScene()
 	switch (SceneState)
 	{
 	case SCENE_TITLE:
-		UpdateScene();
+		UpdateTitle();
 		break;
 
 	case SCENE_GAME:
