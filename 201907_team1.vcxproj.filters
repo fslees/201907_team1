@@ -120,14 +120,14 @@
     <ClInclude Include="source\score.h">
       <Filter>ヘッダー ファイル\game</Filter>
     </ClInclude>
-    <ClInclude Include="source\ratingmanager.h">
-      <Filter>ソース ファイル\game</Filter>
-    </ClInclude>
     <ClInclude Include="source\rating.h">
-      <Filter>ソース ファイル\game</Filter>
+      <Filter>ヘッダー ファイル\game</Filter>
     </ClInclude>
-    <ClInclude Include="checkhit.h">
-      <Filter>ソース ファイル\game</Filter>
+    <ClInclude Include="source\ratingmanager.h">
+      <Filter>ヘッダー ファイル\game</Filter>
+    </ClInclude>
+    <ClInclude Include="source\checkhit.h">
+      <Filter>ヘッダー ファイル\game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -206,7 +206,7 @@
     <ClCompile Include="source\ratingmanager.cpp">
       <Filter>ソース ファイル\game</Filter>
     </ClCompile>
-    <ClCompile Include="checkhit.cpp">
+    <ClCompile Include="source\checkhit.cpp">
       <Filter>ソース ファイル\game</Filter>
     </ClCompile>
   </ItemGroup>
