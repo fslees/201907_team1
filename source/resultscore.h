@@ -1,14 +1,14 @@
 //=============================================================================
 //
 // スコアの定義 [score.h]
-// Author : 染谷
+// Author :染矢　晃介
 //
 //=============================================================================
-#ifndef _SCORE_H_
-#define _SCORE_H_
+#ifndef _RESULTSCORE_H_
+#define _RESULTSCORE_H_
 
 #include "main.h"
-#include "2Dtexmanager.h"
+#include "score.h"
 
 //=================================
 // マクロ定義
@@ -21,44 +21,37 @@
 #define SCORE_WIDE				(50)                            //数字の幅
 #define SCORE_MAX				(99999)							// スコアの最大値
 #define SCORE_DIGIT				(5)								// 桁数
-#define SCORE_INITIAL			(0)								//初期スコア
 
 //===============================
 //クラス定義
 //===============================
-class Score
+class Resultscore:public Score
 {
 public://メンバー変数
-	LPDIRECT3DTEXTURE9 scoreTex = NULL;					//テクスチャへのポインタ
-	VERTEX_2D vertexScore[SCORE_DIGIT][NUM_VERTEX];		//頂点情報格納ワーク
-	D3DXVECTOR3 vertexScorePos[NUM_VERTEX];				//頂点の位置情報
-	D3DXVECTOR3 pos;									//表示位置
-	int         score;								    //スコアの実数値
+	LPDIRECT3DTEXTURE9  resultScoreTex = NULL;					//テクスチャへのポインタ
+	VERTEX_2D vertexResultScore[SCORE_DIGIT][NUM_VERTEX];		//頂点情報格納ワーク
+	D3DXVECTOR3 vertexResultScorePos[NUM_VERTEX];				//頂点の位置情報
+	D3DXVECTOR3 pos;											//表示位置
+	int         resultScore;									//スコアの実数値
+
+private:
 
 
 public://メンバー関数
-	Score();//テクスチャの読み込み
+	Resultscore();//テクスチャの読み込み
 
-	~Score();//テクスチャの解放
+	~Resultscore();//テクスチャの解放
 
-	void UninitScore();
+	void UninitResultScore();
 	//
-	void UpdateScore();
+	void UpdateResultScore();
 	//
-	void DrawScore();
-    //
+	void DrawResultScore();
+	//
 	void MakeVertex(D3DXVECTOR3 pos);
 	//
-	void SetScore(int num);
-	//
-	int GetScore();
-
-	//=================================================
-	// スコア加算関数
-	// 第１引数：int num(加算する値)
-	// 戻り値　：無し
-	//=================================================
-	void AddScore(int num);
+	void SetResultScore(int num);
+	
 
 private:
 
@@ -66,4 +59,5 @@ private:
 
 
 #endif
+
 

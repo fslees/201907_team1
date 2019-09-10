@@ -12,7 +12,7 @@
 //=================================
 // マクロ定義
 //=================================
-
+#define TEXTURE_TUTORIAL "data/TEXTURE/tutorial.png"
 
 //===============================
 //プロトタイプ宣言
@@ -26,4 +26,6 @@
 	void	UpdateTutorial();
 	//描画処理
 	void	DrawTutorial();
+	//頂点の作成
+	void MakeVertexTutorial();
 #endif

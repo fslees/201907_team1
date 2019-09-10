@@ -103,9 +103,9 @@ void MakeVertex()
 
 	// テクスチャのパースペクティブコレクト用
 	vertexResult[0].rhw =
-		vertexResult[1].rhw =
-		vertexResult[2].rhw =
-		vertexResult[3].rhw = 1.0f;
+	vertexResult[1].rhw =
+	vertexResult[2].rhw =
+	vertexResult[3].rhw = 1.0f;
 
 	// 反射光の設定
 	vertexResult[0].diffuse = D3DCOLOR_RGBA(255, 255, 255, 255);

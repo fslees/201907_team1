@@ -9,6 +9,7 @@
 #include "result.h"
 #include "title.h"
 #include "tutorial.h"
+#include "resultscore.h"
 
 //*****************************************************************************
 // マクロ定義
@@ -24,7 +25,7 @@
 // グローバル変数
 //*****************************************************************************
 static int SceneState = NAME_INIT_SCENE;
-
+Resultscore  *resultscore;
 
 
 //*****************************************************************************
@@ -48,6 +49,7 @@ void InitScene()
 
 	case SCENE_RESULT:
 		InitResult();
+		resultscore = new Resultscore;
 		break;
 	
 	default:
@@ -77,6 +79,7 @@ void UninitScene()
 	case SCENE_RESULT:
 		//result.UninitResult();
 		UninitResult();
+		delete resultscore;
 		break;
 
 	default:
@@ -106,6 +109,7 @@ void UpdateScene()
 
 	case SCENE_RESULT:
 		UpdateResult();
+		resultscore->UpdateResultScore();
 		break;
 
 	default:
@@ -134,6 +138,7 @@ void DrawScene()
 
 	case SCENE_RESULT:
 		DrawResult();
+		resultscore->DrawResultScore();
 		break;
 
 	default:
