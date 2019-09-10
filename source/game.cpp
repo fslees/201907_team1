@@ -9,7 +9,6 @@
 #include "camera.h"
 #include "notemanager.h"
 #include "bmsmanager.h"
-
 #include "rating.h"
 #include "inputmanager.h"
 #include "lane.h"
@@ -159,7 +158,6 @@ void DrawGame()
 	// ”»’èƒ‰ƒCƒ“‚Ì•`‰æ
 	hitLine->Draw();
 
-	lane->Draw();
 	// ƒm[ƒc‚Ì•`‰æ
 	note->Draw();
 
