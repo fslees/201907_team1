@@ -32,7 +32,7 @@ public://メンバー変数
 	VERTEX_2D vertexResultScore[SCORE_DIGIT][NUM_VERTEX];		//頂点情報格納ワーク
 	D3DXVECTOR3 vertexResultScorePos[NUM_VERTEX];				//頂点の位置情報
 	D3DXVECTOR3 pos;											//表示位置
-	int         resultScoreNum;									//スコアの実数値
+	int         resultScore;									//スコアの実数値
 
 private:
 

@@ -7,6 +7,8 @@
 #include "scene.h"
 #include "inputmanager.h"
 #include "tutorial.h"
+#include "input.h"
+
 
 //*****************************************************************************
 // É}ÉNÉçíËã`
@@ -60,6 +62,10 @@ void UninitTutorial()
 //*****************************************************************************
 void  UpdateTutorial()
 {
+	if (GetKeyboardTrigger(DIK_1))
+	{
+		SetScene(SCENE_GAME);
+	}
 }
 
 //*****************************************************************************

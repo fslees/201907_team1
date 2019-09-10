@@ -42,10 +42,10 @@ Resultscore::Resultscore()
 	MakeVertex(pos);
 
 	//スコアの実数値の初期化
-	resultScoreNum = GetScore();
+	resultScore = GetScore();
 
 	//スコアの初期化
-	SetResultScore(resultScoreNum);
+	SetResultScore(resultScore);
 
 }
 
@@ -153,17 +153,17 @@ void Resultscore::MakeVertex(D3DXVECTOR3 pos)
 void Resultscore::SetResultScore(int num)
 {
 
-	resultScoreNum = num;
+	resultScore = num;
 
 	for (int i = 0; i < SCORE_DIGIT; i++)
 	{
 		// テクスチャ座標の設定
-		float x = (float)(resultScoreNum % 10);
+		float x = (float)(resultScore % 10);
 		vertexResultScore[i][0].tex = D3DXVECTOR2(0.1f * x, 0.0f);
 		vertexResultScore[i][1].tex = D3DXVECTOR2(0.1f * (x + 1), 0.0f);
 		vertexResultScore[i][2].tex = D3DXVECTOR2(0.1f * x, 1.0f);
 		vertexResultScore[i][3].tex = D3DXVECTOR2(0.1f * (x + 1), 1.0f);
-		resultScoreNum /= 10;
+		resultScore /= 10;
 	}
 }
 

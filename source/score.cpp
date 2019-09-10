@@ -43,10 +43,10 @@ Score::Score()
 	MakeVertex(pos);
 
 	//スコアの実数値の初期化
-	ScoreNum = SCORE_INITIAL;
+	score = SCORE_INITIAL;
 
 	//スコアの初期化
-	SetScore(ScoreNum);
+	SetScore(score);
 
 }
 
@@ -173,5 +173,5 @@ void Score::SetScore(int num)
 //==========================================
 int Score::GetScore()
 {
-	return ScoreNum;
+	return score;
 }

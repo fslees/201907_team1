@@ -54,7 +54,7 @@ void UpdateTitle()
 {
 	if (GetKeyboardTrigger(DIK_1))
 	{
-		SetScene(1);
+		SetScene(SCENE_TUTORIAL);
 	}
 }
 
