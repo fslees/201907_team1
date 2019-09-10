@@ -111,14 +111,23 @@
     <ClInclude Include="source\result.h">
       <Filter>ヘッダー ファイル\result</Filter>
     </ClInclude>
-    <ClInclude Include="source\score.h">
-      <Filter>ヘッダー ファイル\result</Filter>
-    </ClInclude>
     <ClInclude Include="source\tutorial.h">
       <Filter>ヘッダー ファイル\tutorial</Filter>
     </ClInclude>
     <ClInclude Include="source\inputmanager.h">
       <Filter>ヘッダー ファイル\system</Filter>
+    </ClInclude>
+    <ClInclude Include="source\score.h">
+      <Filter>ヘッダー ファイル\game</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ratingmanager.h">
+      <Filter>ソース ファイル\game</Filter>
+    </ClInclude>
+    <ClInclude Include="source\rating.h">
+      <Filter>ソース ファイル\game</Filter>
+    </ClInclude>
+    <ClInclude Include="checkhit.h">
+      <Filter>ソース ファイル\game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -182,14 +191,23 @@
     <ClCompile Include="source\result.cpp">
       <Filter>ソース ファイル\result</Filter>
     </ClCompile>
-    <ClCompile Include="source\score.cpp">
-      <Filter>ソース ファイル\result</Filter>
-    </ClCompile>
     <ClCompile Include="source\tutorial.cpp">
       <Filter>ソース ファイル\tutorial</Filter>
     </ClCompile>
     <ClCompile Include="source\inputmanager.cpp">
       <Filter>ソース ファイル\system</Filter>
+    </ClCompile>
+    <ClCompile Include="source\score.cpp">
+      <Filter>ソース ファイル\game</Filter>
+    </ClCompile>
+    <ClCompile Include="source\rating.cpp">
+      <Filter>ソース ファイル\game</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ratingmanager.cpp">
+      <Filter>ソース ファイル\game</Filter>
+    </ClCompile>
+    <ClCompile Include="checkhit.cpp">
+      <Filter>ソース ファイル\game</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

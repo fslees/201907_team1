@@ -9,8 +9,9 @@
 // マクロ定義
 enum
 {	// サウンド通しナンバー
-	BGM_00,
-	BGM_01,
+	BGM_NULL,
+	BGM_TITLE,
+	BGM_GAME,
 	SOUND_MAX
 };
 

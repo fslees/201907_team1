@@ -63,11 +63,11 @@ Score::~Score()
 //*****************************************************************************
 void Score::UninitScore()
 {
-	//if (scoreTex != NULL)
-	//{// テクスチャの開放
-	//	scoreTex->Release();
-	//	scoreTex = NULL;
-	//}
+	if (scoreTex != NULL)
+	{// テクスチャの開放
+		scoreTex->Release();
+		scoreTex = NULL;
+	}
 }
 
 //*****************************************************************************
@@ -75,7 +75,7 @@ void Score::UninitScore()
 //*****************************************************************************
 void  Score::UpdateScore()
 {
-	
+	SetScore(score);
 }
 
 //*****************************************************************************
@@ -142,8 +142,6 @@ void Score::MakeVertex(D3DXVECTOR3 pos)
 		vertexScore[i][2].tex = D3DXVECTOR2(0.0f, 1.0f);
 		vertexScore[i][3].tex = D3DXVECTOR2(1.0f, 1.0f);
 	}
-
-
 }
 
 
@@ -163,4 +161,12 @@ void Score::SetScore(int num)
 		vertexScore[i][3].tex = D3DXVECTOR2(0.1f * (x + 1), 1.0f);
 		num /= 10;
 	}
+}
+
+//===================================
+// スコアの加算
+//==================================
+void Score :: AddScore(int num)
+{
+	score += num;
 }

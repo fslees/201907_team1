@@ -38,7 +38,8 @@ BmsManager::BmsManager()
 	bms.Load("data/BMS/test2.bms");
 
 	// サウンドのロード
-	BGM = LoadSound(BGM_01);
+	BGM = LoadSound(BGM_NULL);
+	PlaySound(BGM, E_DS8_FLAG_LOOP);
 
 	// マシンの周波数を取得
 	LARGE_INTEGER freq;
@@ -87,7 +88,9 @@ void BmsManager::Update()
 		if (b->bFlag) {
 			if (nowCount >= (b->lTime * (scrMulti / 2)))
 			{
-				PlaySound(BGM,0);
+				StopSound(BGM);
+				BGM = LoadSound(BGM_GAME);
+				PlaySound(BGM,E_DS8_FLAG_NONE);
 				b->bFlag = FALSE;				// 通過したBGMフラグをfalse
 				startNum[BMS_BACKMUSIC] = i + 1;
 			}

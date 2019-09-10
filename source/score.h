@@ -28,13 +28,13 @@
 class Score
 {
 public://メンバー変数
+	int score;
+private:
 	Texmanager texmanager;								//テクスチャのマネージャーのメンバー変数
+	D3DXVECTOR3 pos;									//表示位置
 	LPDIRECT3DTEXTURE9 scoreTex = NULL;					//テクスチャへのポインタ
 	VERTEX_2D vertexScore[SCORE_DIGIT][NUM_VERTEX];		//頂点情報格納ワーク
 	D3DXVECTOR3 vertexScorePos[NUM_VERTEX];				//頂点の位置情報
-	D3DXVECTOR3 pos;									//表示位置
-
-private:
 
 
 public://メンバー関数
@@ -51,6 +51,13 @@ public://メンバー関数
 	void MakeVertex(D3DXVECTOR3 pos);
 	//
 	void SetScore(int num);
+
+	//=================================================
+	// スコア加算関数
+	// 第１引数：int num(加算する値)
+	// 戻り値　：無し
+	//=================================================
+	void AddScore(int num);
 
 private:
 
