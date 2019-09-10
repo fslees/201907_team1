@@ -9,7 +9,7 @@
 #include "camera.h"
 #include "notemanager.h"
 #include "bmsmanager.h"
-#include "ratingmanager.h"
+#include "rating.h"
 #include "inputmanager.h"
 #include "lane.h"
 #include "score.h"
@@ -17,6 +17,7 @@
 #include "input.h"
 #include "scene.h"
 #include "hitline.h"
+
 
 //*****************************************************************************
 // マクロ定義
@@ -38,7 +39,6 @@ Lane			*lane;
 NoteManager		*note;
 Score           *score;
 HitLine			*hitLine;
-RatingManager	*rating;
 
 //*****************************************************************************
 // ゲームの初期化
@@ -50,6 +50,9 @@ void InitGame()
 
 	// ライトの初期化
 	InitLight();
+
+	// 判定評価の初期化
+	InitRating();
 
 	// レーンの初期化
 	lane = new Lane;
@@ -63,9 +66,8 @@ void InitGame()
 	// スコアの初期化
 	score = new Score;
   
+	// 判定ライン初期化
 	hitLine = new HitLine;
-
-	rating = new RatingManager;
 }
 
 //*****************************************************************************
@@ -79,18 +81,19 @@ void UninitGame()
 	// ライトの終了
 	UninitLight();
 
-	// noteの終了
+	// 判定評価の終了処理
+	UninitRating();
+
+	// レーンの終了
 	delete lane;
-
+	// ノーツの終了
 	delete note;
-
+	// 譜面の終了
 	delete bms;
-
+	// スコアの終了
 	delete score;
-	
+	// 判定ラインの終了
 	delete hitLine;
-
-	delete rating;
 }
 
 
@@ -120,10 +123,11 @@ void UpdateGame()
 	{
 		// ロングノーツのセット 
 	}
-
+	// スコアの更新
 	score->UpdateScore();
 
-	rating->SetRaitng(note->note->delRating);
+	// 判定評価の更新
+	UpdateRating();
 
 #ifdef _DEBUG
 
@@ -150,14 +154,14 @@ void DrawGame()
 	// 判定ラインの描画
 	hitLine->Draw();
 
-	lane->Draw();
-
 	// ノーツの描画
 	note->Draw();
 
+	// スコアの描画
 	score->DrawScore();
 
-	rating->Draw();
+	// 判定評価の描画
+	DrawRating();
 }
 
 

@@ -6,7 +6,7 @@
 #include "notemanager.h"
 #include "note.h"
 #include "inputmanager.h"
-#include "ratingmanager.h"
+#include "rating.h"
 
 //======================================
 //マクロ定義
@@ -86,16 +86,16 @@ void NoteController::CheckHit(Note *note, D3DXVECTOR3 linePos)
 	if (pos.x == linePos.x && pos.z <= 10 && pos.z >= 0)
 	{	//パーフェクト
 		note->use = false;
-		note->delRating = PERFECT;
+		SetRatingTex(PERFECT);
 	}
 	else if (pos.x == linePos.x && pos.z <= 30 && pos.z >= -10)
 	{	//グレート
 		note->use = false;
-		note->delRating = GREAT;
+		SetRatingTex(GREAT);
 	}
 	else if (pos.x == linePos.x && pos.z <= 50 && pos.z >= -15)
 	{	//グッド
 		note->use = false;
-		note->delRating = GOOD;
+		SetRatingTex(GOOD);
 	}
 }

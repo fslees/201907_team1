@@ -27,7 +27,7 @@ public:
 	D3DXMATRIX	mtxWorld;		//ワールドマトリクス
 	float		move;			//移動量
 	bool		use;			//使用状態
-	int			delRating;		//消滅時の評価
+
 private:
 
 	//メンバー関数

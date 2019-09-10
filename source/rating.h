@@ -8,7 +8,6 @@
 #define _RATING_H_
 
 #include "main.h"
-#include "camera.h"
 
 //=================================
 // マクロ定義
@@ -21,28 +20,28 @@ enum RATING_TEX
 	TEX_MAX,
 };
 
-class Rating
+//=================================
+// 構造体宣言
+//=================================
+struct Rating
 {
-private:
-	Camera					camera;
-
-	LPDIRECT3DTEXTURE9		texture[TEX_MAX] = { NULL,NULL, NULL };	//テクスチャへのポインタ
-	VERTEX_2D				vertex[NUM_VERTEX];		// 頂点情報格納ワーク
-	D3DXMATRIX				mtxWorld;
-
-public:
-	int						texNum;					// テクスチャーの番号
-	bool					use;					// 使用状態
-	//初期化
-	Rating();
-	//終了処理
-	~Rating();
-	//更新処理
-	void Update();
-	//描画処理
-	void Draw();
-	//頂点の作成
-	void MakeVertex();
-
+	int			texNum;					// テクスチャーの番号
+	bool		use;					// 使用状態
+	int			frameCnt;
 };
+
+//=================================
+// プロトタイプ宣言
+//=================================
+//初期化
+HRESULT InitRating();
+//終了処理
+void UninitRating();
+//更新処理
+void UpdateRating();
+//描画処理
+void DrawRating();
+//判定評価の設置
+void SetRatingTex(int texNum);
+
 #endif

@@ -21,7 +21,6 @@ Note::Note()
 	scl = D3DXVECTOR3(2.0f, 2.0f, 2.0f);
 	move = 0;
 	use = false;
-	delRating = 0;
 }
 
 //=======================================
