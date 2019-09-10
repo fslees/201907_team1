@@ -6,12 +6,11 @@
 //=============================================================================
 #include "notemanager.h"
 #include "lane.h"
-#include "assert.h"
 
 //*****************************************************************************
 // マクロ定義
 //*****************************************************************************
-#define NOTE_MAX		(50)
+#define NOTE_MAX		(50)		// ノーツの最大確保数
 
 //*****************************************************************************
 // プロトタイプ宣言
@@ -102,7 +101,7 @@ bool NoteManager::SetNoteLane(int laneNum, int noteNum, float scrSpeed)
 			note[noteNum].pos = lanePos[RIGHT_LANE];
 			break;
 		default:
-			assert(laneNum > 2);
+			longNote == false ? longNote = true : longNote = false;
 			break;
 		}
 

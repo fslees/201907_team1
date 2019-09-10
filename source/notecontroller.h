@@ -8,7 +8,6 @@
 class Note;
 #include "main.h"
 
-
 //==================================================
 //マクロ定義
 //==================================================
@@ -22,8 +21,6 @@ class NoteController
 public:
 	Note * note;				//ノーツのポインタ変数
 
-private:
-
 	//メンバー関数
 public:
 	NoteController();			//
@@ -35,9 +32,11 @@ public:
 	// 戻り値：なし
 	// 説　明：ラインごとのノーツ操作判定
 	//=============================================================
-	void InputNote();			
+	void InputNote();		
+
 
 private:
+	void CheckHit(Note *note, D3DXVECTOR3 linePos);
 };
 
 

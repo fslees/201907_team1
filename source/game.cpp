@@ -1,7 +1,7 @@
 //=============================================================================
 //
-// ã‚²ãƒ¼ãƒ ã®å‡¦ç† [game.cpp]
-// Author : æŽå°šãƒŸãƒ³
+// ƒQ[ƒ€‚Ìˆ— [game.cpp]
+// Author : —›®ƒ~ƒ“
 //
 //=============================================================================
 #include "game.h"
@@ -9,27 +9,29 @@
 #include "camera.h"
 #include "notemanager.h"
 #include "bmsmanager.h"
+#include "ratingmanager.h"
+#include "inputmanager.h"
 #include "lane.h"
 #include "score.h"
 #include "result.h"
 #include "input.h"
 #include "scene.h"
 #include "hitline.h"
-#include "inputmanager.h"
+
 
 //*****************************************************************************
-// ãƒžã‚¯ãƒ­å®šç¾©
+// ƒ}ƒNƒ’è‹`
 //*****************************************************************************
 static const D3DXVECTOR3 INIT_POS_CAMERA = D3DXVECTOR3(0.0f, 100.0f, -100.0f);
 static const D3DXVECTOR3 INIT_POS_AT = D3DXVECTOR3(0.0f, 0.0f, 200.0f);
 
 //*****************************************************************************
-// ãƒ—ãƒ­ãƒˆã‚¿ã‚¤ãƒ—å®£è¨€
+// ƒvƒƒgƒ^ƒCƒvéŒ¾
 //*****************************************************************************
 void InitCamera();
 
 //*****************************************************************************
-// ã‚°ãƒ­ãƒ¼ãƒãƒ«å¤‰æ•°
+// ƒOƒ[ƒoƒ‹•Ï”
 //*****************************************************************************
 static Camera	*camera;
 BmsManager		*bms;
@@ -37,45 +39,48 @@ Lane			*lane;
 NoteManager		*note;
 Score           *score;
 HitLine			*hitLine;
+RatingManager	*rating;
 
 //*****************************************************************************
-// ã‚²ãƒ¼ãƒ ã®åˆæœŸåŒ–
+// ƒQ[ƒ€‚Ì‰Šú‰»
 //*****************************************************************************
 void InitGame()
 {
-	// ã‚«ãƒ¡ãƒ©ã®åˆæœŸåŒ–
+	// ƒJƒƒ‰‚Ì‰Šú‰»
 	InitCamera();
 
-	// ãƒ©ã‚¤ãƒˆã®åˆæœŸåŒ–
+	// ƒ‰ƒCƒg‚Ì‰Šú‰»
 	InitLight();
 
-	// ãƒ¬ãƒ¼ãƒ³ã®åˆæœŸåŒ–
+	// ƒŒ[ƒ“‚Ì‰Šú‰»
 	lane = new Lane;
 
-	// ãƒŽãƒ¼ãƒ„ã®åˆæœŸåŒ–
+	// ƒm[ƒc‚Ì‰Šú‰»
 	note = new NoteManager;
 
-	// bmsã®åˆæœŸåŒ–
+	// bms‚Ì‰Šú‰»
 	bms = new BmsManager;
 
-	// ã‚¹ã‚³ã‚¢ã®åˆæœŸåŒ–
+	// ƒXƒRƒA‚Ì‰Šú‰»
 	score = new Score;
   
 	hitLine = new HitLine;
+
+	rating = new RatingManager;
 }
 
 //*****************************************************************************
-// ã‚²ãƒ¼ãƒ ã®çµ‚äº†
+// ƒQ[ƒ€‚ÌI—¹
 //*****************************************************************************
 void UninitGame()
 {
-	// ã‚«ãƒ¡ãƒ©ã®è§£æ”¾
+	// ƒJƒƒ‰‚Ì‰ð•ú
 	delete camera;
 
-	// ãƒ©ã‚¤ãƒˆã®çµ‚äº†
+	// ƒ‰ƒCƒg‚ÌI—¹
 	UninitLight();
 
-	// noteã®çµ‚äº†
+	// note‚ÌI—¹
 	delete lane;
 
 	delete note;
@@ -85,64 +90,83 @@ void UninitGame()
 	delete score;
 	
 	delete hitLine;
+
+	delete rating;
 }
 
 
 
 //*****************************************************************************
-// ã‚²ãƒ¼ãƒ ã®æ›´æ–°
+// ƒQ[ƒ€‚ÌXV
 //*****************************************************************************
 void UpdateGame()
 {
-	// ã‚«ãƒ¡ãƒ©ã®æ›´æ–°
+	// ƒJƒƒ‰‚ÌXV
 	camera->Update();
 
-	// ãƒ©ã‚¤ãƒˆã®æ›´æ–°
+	// ƒ‰ƒCƒg‚ÌXV
 	UpdateLight();
 
-	// è­œé¢ãƒ‡ãƒ¼ã‚¿ã®æ›´æ–°
+	// •ˆ–Êƒf[ƒ^‚ÌXV
 	bms->Update();
 	bms->CheckSetCount(note);
 
-	// ãƒŽãƒ¼ãƒ„ã®æ›´æ–°
+	// ƒm[ƒc‚ÌXV
 	note->Update();
 
 	lane->Update();
+	// ƒƒ“ƒOƒm[ƒc‚ÌXV
+
+	// ƒƒ“ƒOƒm[ƒc‚ÌÝ’u
+	if (note->longNote)
+	{
+		// ƒƒ“ƒOƒm[ƒc‚ÌƒZƒbƒg 
+	}
 
 	score->UpdateScore();
-	
+
+	rating->SetRaitng(note->note->delRating);
+
+#ifdef _DEBUG
+
+	//ƒQ[ƒ€‘JˆÚ
 	if (GetKeyboardTrigger(DIK_1))
 	{
 		SetScene(SCENE_RESULT);
 	}
 
+#endif 
 }
 
 //*****************************************************************************
-// ã‚²ãƒ¼ãƒ ç”»é¢ã®æç”»
+// ƒQ[ƒ€‰æ–Ê‚Ì•`‰æ
 //*****************************************************************************
 void DrawGame()
 {
-	// ã‚«ãƒ¡ãƒ©ã®ã‚»ãƒƒãƒˆ
+	// ƒJƒƒ‰‚ÌƒZƒbƒg
 	camera->Set();
 	
-	// ãƒ¬ãƒ¼ãƒ³ã®æç”»
+	// ƒŒ[ƒ“‚Ì•`‰æ
 	lane->Draw();
 
-	// åˆ¤å®šãƒ©ã‚¤ãƒ³ã®æç”»
+	// ”»’èƒ‰ƒCƒ“‚Ì•`‰æ
 	hitLine->Draw();
 
 	lane->Draw();
 
+	// ƒm[ƒc‚Ì•`‰æ
+	note->Draw();
+
 	score->DrawScore();
 
-	// ãƒŽãƒ¼ãƒ„ã®æç”»
+	// ƒm[ƒc‚Ì•`‰æ
 	note->Draw();
+	rating->Draw();
 }
 
 
 //*****************************************************************************
-// ã‚«ãƒ¡ãƒ©ã®åˆæœŸåŒ–
+// ƒJƒƒ‰‚Ì‰Šú‰»
 //*****************************************************************************
 void InitCamera()
 {

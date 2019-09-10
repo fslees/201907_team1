@@ -40,9 +40,9 @@ class NoteManager
 {
 private:
 	D3DXVECTOR3	lanePos[LANE_NUM_MAX];	// レーンの座標
-
 public:
 	Note		*note;
+	bool		longNote;				// ロングノーツの使用状態
 	NoteManager();
 	~NoteManager();
 	void Update(void);

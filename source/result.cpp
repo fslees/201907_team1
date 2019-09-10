@@ -40,7 +40,6 @@ HRESULT InitResult()
 								TEXTURE_RESULT,		// ファイルの名前
 								&resultTex);		// 読み込むメモリー
 
-
 	//頂点の作成
 	MakeVertex();
 

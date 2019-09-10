@@ -23,6 +23,7 @@
     <ClInclude Include="source\bmsfile.h" />
     <ClInclude Include="source\bmsmanager.h" />
     <ClInclude Include="source\camera.h" />
+    <ClInclude Include="source\checkhit.h" />
     <ClInclude Include="source\debugproc.h" />
     <ClInclude Include="source\game.h" />
     <ClInclude Include="source\hitline.h" />
@@ -35,6 +36,8 @@
     <ClInclude Include="source\notecontroller.h" />
     <ClInclude Include="source\notemanager.h" />
     <ClInclude Include="source\noteview.h" />
+    <ClInclude Include="source\rating.h" />
+    <ClInclude Include="source\ratingmanager.h" />
     <ClInclude Include="source\result.h" />
     <ClInclude Include="source\resultscore.h" />
     <ClInclude Include="source\scene.h" />
@@ -49,6 +52,7 @@
     <ClCompile Include="source\bmsfile.cpp" />
     <ClCompile Include="source\bmsmanager.cpp" />
     <ClCompile Include="source\camera.cpp" />
+    <ClCompile Include="source\checkhit.cpp" />
     <ClCompile Include="source\debugproc.cpp" />
     <ClCompile Include="source\game.cpp" />
     <ClCompile Include="source\hitline.cpp" />
@@ -61,6 +65,8 @@
     <ClCompile Include="source\notecontroller.cpp" />
     <ClCompile Include="source\notemanager.cpp" />
     <ClCompile Include="source\noteview.cpp" />
+    <ClCompile Include="source\rating.cpp" />
+    <ClCompile Include="source\ratingmanager.cpp" />
     <ClCompile Include="source\result.cpp" />
     <ClCompile Include="source\resultscore.cpp" />
     <ClCompile Include="source\scene.cpp" />
