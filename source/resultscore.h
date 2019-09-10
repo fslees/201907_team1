@@ -1,14 +1,14 @@
 //=============================================================================
 //
 // スコアの定義 [score.h]
-// Author : 李尚ミン
+// Author :染矢　晃介
 //
 //=============================================================================
-#ifndef _SCORE_H_
-#define _SCORE_H_
+#ifndef _RESULTSCORE_H_
+#define _RESULTSCORE_H_
 
 #include "main.h"
-#include "2Dtexmanager.h"
+
 
 //=================================
 // マクロ定義
@@ -25,34 +25,33 @@
 //===============================
 //クラス定義
 //===============================
-class Score
+class Resultscore
 {
 public://メンバー変数
-	LPDIRECT3DTEXTURE9 scoreTex = NULL;					//テクスチャへのポインタ
-	VERTEX_2D vertexScore[SCORE_DIGIT][NUM_VERTEX];		//頂点情報格納ワーク
-	D3DXVECTOR3 vertexScorePos[NUM_VERTEX];				//頂点の位置情報
-	D3DXVECTOR3 pos;									//表示位置
-	int         ScoreNum;								//スコアの実数値
+	LPDIRECT3DTEXTURE9  resultScoreTex = NULL;					//テクスチャへのポインタ
+	VERTEX_2D vertexResultScore[SCORE_DIGIT][NUM_VERTEX];		//頂点情報格納ワーク
+	D3DXVECTOR3 vertexResultScorePos[NUM_VERTEX];				//頂点の位置情報
+	D3DXVECTOR3 pos;											//表示位置
+	int         resultScoreNum;									//スコアの実数値
 
 private:
 
 
 public://メンバー関数
-	Score();//テクスチャの読み込み
+	Resultscore();//テクスチャの読み込み
 
-	~Score();//テクスチャの解放
+	~Resultscore();//テクスチャの解放
 
-	void UninitScore();
+	void UninitResultScore();
 	//
-	void UpdateScore();
+	void UpdateResultScore();
 	//
-	void DrawScore();
-    //
+	void DrawResultScore();
+	//
 	void MakeVertex(D3DXVECTOR3 pos);
 	//
-	void SetScore(int num);
-	//
-	int GetScore(int num);
+	void SetResultScore(int num);
+	
 
 private:
 
@@ -60,4 +59,5 @@ private:
 
 
 #endif
+
 

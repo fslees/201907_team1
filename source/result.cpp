@@ -40,12 +40,6 @@ HRESULT InitResult()
 								TEXTURE_RESULT,		// ファイルの名前
 								&resultTex);		// 読み込むメモリー
 
-	//頂点座標の初期化
-	/*vertexResult[0].vtx = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
-	  vertexResult[1].vtx = D3DXVECTOR3((float)(SCREEN_WIDTH), 0.0f, 0.0f);
-	  vertexResult[2].vtx = D3DXVECTOR3(0.0f, (float)(SCREEN_HEIGHT), 0.0f);
-      vertexResult[3].vtx = D3DXVECTOR3((float)(SCREEN_WIDTH), (float)(SCREEN_HEIGHT), 0.0f);*/
-
 
 	//頂点の作成
 	MakeVertex();
@@ -110,9 +104,9 @@ void MakeVertex()
 
 	// テクスチャのパースペクティブコレクト用
 	vertexResult[0].rhw =
-		vertexResult[1].rhw =
-		vertexResult[2].rhw =
-		vertexResult[3].rhw = 1.0f;
+	vertexResult[1].rhw =
+	vertexResult[2].rhw =
+	vertexResult[3].rhw = 1.0f;
 
 	// 反射光の設定
 	vertexResult[0].diffuse = D3DCOLOR_RGBA(255, 255, 255, 255);
