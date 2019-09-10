@@ -17,12 +17,13 @@
 #include "input.h"
 #include "scene.h"
 #include "hitline.h"
+#include "cutter.h"
 
 //*****************************************************************************
 // マクロ定義
 //*****************************************************************************
-static const D3DXVECTOR3 INIT_POS_CAMERA = D3DXVECTOR3(0.0f, 100.0f, -100.0f);
-static const D3DXVECTOR3 INIT_POS_AT = D3DXVECTOR3(0.0f, 0.0f, 200.0f);
+static const D3DXVECTOR3 INIT_POS_CAMERA = D3DXVECTOR3(0.0f, 100.0f, -110.0f);
+static const D3DXVECTOR3 INIT_POS_AT = D3DXVECTOR3(0.0f, 50.0f, 200.0f);
 
 //*****************************************************************************
 // プロトタイプ宣言
@@ -68,6 +69,9 @@ void InitGame()
 	// 判定ライン初期化
 	hitLine = new HitLine;
 
+	// カッターの初期化
+	InitCutter(hitLine->GetPos());
+
 }
 
 //*****************************************************************************
@@ -95,6 +99,8 @@ void UninitGame()
 	delete score;
 	// 判定ラインの終了
 	delete hitLine;
+	// カッターの終了
+	UninitCutter();
 
 }
 
@@ -132,6 +138,9 @@ void UpdateGame()
 	// スコアの更新
 	score->UpdateScore();
 
+	// カッターの更新
+	UpdateCutter();
+
 
 #ifdef _DEBUG
 
@@ -166,6 +175,9 @@ void DrawGame()
 
 	// 判定評価の描画
 	DrawRating();
+
+	// カッターの描画
+	DrawCutter();
 }
 
 

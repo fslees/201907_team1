@@ -27,6 +27,7 @@ public:
 	void Update();
 	void Draw();
 	HRESULT MakeVertexHitLine(LPDIRECT3DDEVICE9 pDevice);
+	D3DXVECTOR3	GetPos(void);
 
 };
 
