@@ -9,6 +9,7 @@
 
 #include "main.h"
 #include "2Dtexmanager.h"
+#include "notemanager.h"
 
 //=================================
 // マクロ定義
@@ -28,14 +29,12 @@
 class Score
 {
 public://メンバー変数
-	int score;
 private:
 	Texmanager texmanager;								//テクスチャのマネージャーのメンバー変数
 	D3DXVECTOR3 pos;									//表示位置
 	LPDIRECT3DTEXTURE9 scoreTex = NULL;					//テクスチャへのポインタ
 	VERTEX_2D vertexScore[SCORE_DIGIT][NUM_VERTEX];		//頂点情報格納ワーク
 	D3DXVECTOR3 vertexScorePos[NUM_VERTEX];				//頂点の位置情報
-
 
 public://メンバー関数
 	Score();//テクスチャの読み込み
@@ -52,17 +51,15 @@ public://メンバー関数
 	//
 	void SetScore(int num);
 
-	//=================================================
-	// スコア加算関数
-	// 第１引数：int num(加算する値)
-	// 戻り値　：無し
-	//=================================================
-	void AddScore(int num);
-
-private:
 
 };
 
+	//=================================================
+	// スコア加算関数
+	// 第１引数：int rate(判定評価)
+	// 戻り値　：無し
+	//=================================================
+	void AddScore(int rate);
 
 #endif
 

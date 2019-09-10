@@ -123,11 +123,12 @@ void UpdateGame()
 	{
 		// ロングノーツのセット 
 	}
-	// スコアの更新
-	score->UpdateScore();
 
 	// 判定評価の更新
 	UpdateRating();
+
+	// スコアの更新
+	score->UpdateScore();
 
 #ifdef _DEBUG
 

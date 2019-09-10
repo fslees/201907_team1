@@ -26,31 +26,30 @@
 //*****************************************************************************
 // プロトタイプ宣言
 //*****************************************************************************
-void MakeVertexRating(int rno);
-void DeleteRating(int frame, int rno);
+void MakeVertexRating();
+void DeleteRating(int frame);
 
 //*****************************************************************************
 // グローバル変数
 //*****************************************************************************
 LPDIRECT3DTEXTURE9		texture[TEX_MAX] = { NULL,NULL, NULL };	//テクスチャへのポインタ
-VERTEX_2D				vertex[RATING_MAX][NUM_VERTEX];		// 頂点情報格納ワーク
-Rating					rating[RATING_MAX];
+VERTEX_2D				vertex[NUM_VERTEX];		// 頂点情報格納ワーク
+Rating					rating;
+
 //*****************************************************************************
 // 初期化
 //*****************************************************************************
 HRESULT InitRating()
 {
 	LPDIRECT3DDEVICE9 Device = GetDevice();
+	
+	// 変数の初期化
+	rating.texNum = PERFECT;
+	rating.use = false;
+	rating.frameCnt = 0;
 
-	for (int i = 0; i < RATING_MAX; i++)
-	{
-		// 変数の初期化
-		rating[i].texNum = PERFECT;
-		rating[i].use = false;
-		rating[i].frameCnt = 0;
-		//頂点の作成
-		MakeVertexRating(i);
-	}
+	//頂点の作成
+	MakeVertexRating();
 
 	// テクスチャの読み込み
 	D3DXCreateTextureFromFile(Device,				// デバイスへのポインタ
@@ -86,14 +85,11 @@ void UninitRating()
 //*****************************************************************************
 void  UpdateRating()
 {
-	for (int i = 0; i < RATING_MAX; i++)
+	if (rating.use)
 	{
-		if (rating[i].use)
-		{
-			rating[i].frameCnt++;
+		rating.frameCnt++;
 
-			DeleteRating(rating[i].frameCnt, i);
-		}
+		DeleteRating(rating.frameCnt);
 	}
 }
 
@@ -104,50 +100,47 @@ void DrawRating()
 {
 	LPDIRECT3DDEVICE9 Device = GetDevice();
 
-	for (int i = 0; i < RATING_MAX; i++)
+	if (rating.use)
 	{
-		if (rating[i].use)
-		{
-			// 頂点フォーマットの設定
-			Device->SetFVF(FVF_VERTEX_2D);
+		// 頂点フォーマットの設定
+		Device->SetFVF(FVF_VERTEX_2D);
 
-			// テクスチャの設定
-			Device->SetTexture(0, texture[rating[i].texNum]);
+		// テクスチャの設定
+		Device->SetTexture(0, texture[rating.texNum]);
 
-			// ポリゴンの描画
-			Device->DrawPrimitiveUP(D3DPT_TRIANGLESTRIP, NUM_POLYGON, vertex[i], sizeof(VERTEX_2D));
-		}
+		// ポリゴンの描画
+		Device->DrawPrimitiveUP(D3DPT_TRIANGLESTRIP, NUM_POLYGON, vertex, sizeof(VERTEX_2D));
 	}
 }
 
 //=========================================
 //頂点の作成
 //=========================================
-void MakeVertexRating(int rno)
+void MakeVertexRating()
 {
 	// 頂点座標の設定
-	vertex[rno][0].vtx = D3DXVECTOR3((float)(SCREEN_CENTER_X)-TEXTURE_SIZE_X, TEXTURE_POS_Y - TEXTURE_SIZE_Y, 0.0f);
-	vertex[rno][1].vtx = D3DXVECTOR3((float)(SCREEN_CENTER_X)+TEXTURE_SIZE_X, TEXTURE_POS_Y - TEXTURE_SIZE_Y, 0.0f);
-	vertex[rno][2].vtx = D3DXVECTOR3((float)(SCREEN_CENTER_X)-TEXTURE_SIZE_X, TEXTURE_POS_Y + TEXTURE_SIZE_Y, 0.0f);
-	vertex[rno][3].vtx = D3DXVECTOR3((float)(SCREEN_CENTER_X)+TEXTURE_SIZE_X, TEXTURE_POS_Y + TEXTURE_SIZE_Y, 0.0f);
+	vertex[0].vtx = D3DXVECTOR3((float)(SCREEN_CENTER_X)-TEXTURE_SIZE_X, TEXTURE_POS_Y - TEXTURE_SIZE_Y, 0.0f);
+	vertex[1].vtx = D3DXVECTOR3((float)(SCREEN_CENTER_X)+TEXTURE_SIZE_X, TEXTURE_POS_Y - TEXTURE_SIZE_Y, 0.0f);
+	vertex[2].vtx = D3DXVECTOR3((float)(SCREEN_CENTER_X)-TEXTURE_SIZE_X, TEXTURE_POS_Y + TEXTURE_SIZE_Y, 0.0f);
+	vertex[3].vtx = D3DXVECTOR3((float)(SCREEN_CENTER_X)+TEXTURE_SIZE_X, TEXTURE_POS_Y + TEXTURE_SIZE_Y, 0.0f);
 
 	// テクスチャのパースペクティブコレクト用
-	vertex[rno][0].rhw =
-		vertex[rno][1].rhw =
-		vertex[rno][2].rhw =
-		vertex[rno][3].rhw = 1.0f;
+	vertex[0].rhw =
+		vertex[1].rhw =
+		vertex[2].rhw =
+		vertex[3].rhw = 1.0f;
 
 	// 反射光の設定
-	vertex[rno][0].diffuse = D3DCOLOR_RGBA(255, 255, 255, 255);
-	vertex[rno][1].diffuse = D3DCOLOR_RGBA(255, 255, 255, 255);
-	vertex[rno][2].diffuse = D3DCOLOR_RGBA(255, 255, 255, 255);
-	vertex[rno][3].diffuse = D3DCOLOR_RGBA(255, 255, 255, 255);
+	vertex[0].diffuse = D3DCOLOR_RGBA(255, 255, 255, 255);
+	vertex[1].diffuse = D3DCOLOR_RGBA(255, 255, 255, 255);
+	vertex[2].diffuse = D3DCOLOR_RGBA(255, 255, 255, 255);
+	vertex[3].diffuse = D3DCOLOR_RGBA(255, 255, 255, 255);
 
 	// テクスチャ座標の設定
-	vertex[rno][0].tex = D3DXVECTOR2(0.0f, 0.0f);
-	vertex[rno][1].tex = D3DXVECTOR2(1.0f, 0.0f);
-	vertex[rno][2].tex = D3DXVECTOR2(0.0f, 1.0f);
-	vertex[rno][3].tex = D3DXVECTOR2(1.0f, 1.0f);
+	vertex[0].tex = D3DXVECTOR2(0.0f, 0.0f);
+	vertex[1].tex = D3DXVECTOR2(1.0f, 0.0f);
+	vertex[2].tex = D3DXVECTOR2(0.0f, 1.0f);
+	vertex[3].tex = D3DXVECTOR2(1.0f, 1.0f);
 }
 
 //=========================================
@@ -155,25 +148,18 @@ void MakeVertexRating(int rno)
 //=========================================
 void SetRatingTex(int texNum)
 {
-	for (int i = 0; i < RATING_MAX; i++)
-	{
-		if (!rating[i].use)
-		{
-			rating[i].texNum = texNum;
-			rating[i].use = true;
-
-			break;
-		}
-	}
+	rating.use = true;
+	rating.texNum = texNum;
 }
 
 //=========================================
 //評価表示の設置
 //=========================================
-void DeleteRating(int frame, int rno)
+void DeleteRating(int frame)
 {
 	if (frame % DELETE_CNT == 0)
 	{
-		rating[rno].use = false;
+		rating.use = false;
+		rating.frameCnt = 0;
 	}
 }
