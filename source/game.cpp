@@ -9,13 +9,14 @@
 #include "camera.h"
 #include "notemanager.h"
 #include "bmsmanager.h"
+#include "ratingmanager.h"
+#include "inputmanager.h"
 #include "lane.h"
 #include "score.h"
 #include "result.h"
 #include "input.h"
 #include "scene.h"
 #include "hitline.h"
-#include "inputmanager.h"
 
 //*****************************************************************************
 // マクロ定義
@@ -37,6 +38,7 @@ Lane			*lane;
 NoteManager		*note;
 Score           *score;
 HitLine			*hitLine;
+RatingManager	*rating;
 
 //*****************************************************************************
 // ゲームの初期化
@@ -62,6 +64,8 @@ void InitGame()
 	score = new Score;
   
 	hitLine = new HitLine;
+
+	rating = new RatingManager;
 }
 
 //*****************************************************************************
@@ -85,6 +89,8 @@ void UninitGame()
 	delete score;
 	
 	delete hitLine;
+
+	delete rating;
 }
 
 
@@ -115,10 +121,10 @@ void UpdateGame()
 		// ロングノーツのセット 
 	}
 
-	lane->Update();
-
 	score->UpdateScore();
-	
+
+	rating->SetRaitng(note->note->delRating);
+
 #ifdef _DEBUG
 
 	//ゲーム遷移
@@ -128,7 +134,6 @@ void UpdateGame()
 	}
 
 #endif 
-
 }
 
 //*****************************************************************************
@@ -147,10 +152,12 @@ void DrawGame()
 
 	lane->Draw();
 
-	score->DrawScore();
-
 	// ノーツの描画
 	note->Draw();
+
+	score->DrawScore();
+
+	rating->Draw();
 }
 
 
