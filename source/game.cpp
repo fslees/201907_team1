@@ -112,9 +112,9 @@ void UpdateGame()
 	score->UpdateScore();
 	
 	//ゲーム遷移
-	if (GetKeyboardTrigger(DIK_1))
+	if (GetKeyboardTrigger(DIK_0))
 	{
-		SetScene(2);
+		SetScene(SCENE_RESULT);
 	}
 
 }

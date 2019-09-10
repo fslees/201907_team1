@@ -21,6 +21,7 @@
 #define SCORE_WIDE				(50)                            //数字の幅
 #define SCORE_MAX				(99999)							// スコアの最大値
 #define SCORE_DIGIT				(5)								// 桁数
+#define SCORE_INITIAL			(0)								//初期スコア
 
 //===============================
 //クラス定義
@@ -52,7 +53,7 @@ public://メンバー関数
 	//
 	void SetScore(int num);
 	//
-	int GetScore(int num);
+	int GetScore();
 
 private:
 

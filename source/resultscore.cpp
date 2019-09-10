@@ -5,6 +5,7 @@
 //
 //=============================================================================
 #include "resultscore.h"
+#include "score.h"
 
 //*****************************************************************************
 // マクロ定義
@@ -40,11 +41,12 @@ Resultscore::Resultscore()
 	//頂点の作成
 	MakeVertex(pos);
 
-	//スコアの初期化
-	SetResultScore(0);
-
 	//スコアの実数値の初期化
-	resultScoreNum = 0;
+	resultScoreNum = GetScore();
+
+	//スコアの初期化
+	SetResultScore(resultScoreNum);
+
 }
 
 //=============================================================================
@@ -64,11 +66,7 @@ Resultscore::~Resultscore()
 //*****************************************************************************
 void Resultscore::UninitResultScore()
 {
-	//if (scoreTex != NULL)
-	//{// テクスチャの開放
-	//	scoreTex->Release();
-	//	scoreTex = NULL;
-	//}
+	
 }
 
 //*****************************************************************************
@@ -127,9 +125,9 @@ void Resultscore::MakeVertex(D3DXVECTOR3 pos)
 
 		// rhwの設定
 		vertexResultScore[i][0].rhw =
-			vertexResultScore[i][1].rhw =
-			vertexResultScore[i][2].rhw =
-			vertexResultScore[i][3].rhw = 1.0f;
+		vertexResultScore[i][1].rhw =
+		vertexResultScore[i][2].rhw =
+		vertexResultScore[i][3].rhw = 1.0f;
 
 		// 反射光の設定
 		vertexResultScore[i][0].diffuse = D3DCOLOR_RGBA(255, 255, 255, 255);

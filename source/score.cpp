@@ -42,11 +42,12 @@ Score::Score()
 	//頂点の作成
 	MakeVertex(pos);
 
-	//スコアの初期化
-	SetScore(0);
-
 	//スコアの実数値の初期化
-	ScoreNum = 0;
+	ScoreNum = SCORE_INITIAL;
+
+	//スコアの初期化
+	SetScore(ScoreNum);
+
 }
 
 //=============================================================================
@@ -66,11 +67,7 @@ Score::~Score()
 //*****************************************************************************
 void Score::UninitScore()
 {
-	//if (scoreTex != NULL)
-	//{// テクスチャの開放
-	//	scoreTex->Release();
-	//	scoreTex = NULL;
-	//}
+	
 }
 
 //*****************************************************************************
@@ -157,17 +154,15 @@ void Score::MakeVertex(D3DXVECTOR3 pos)
 void Score::SetScore(int num)
 {
 	
-	ScoreNum = num;
-
 	for (int i = 0; i < SCORE_DIGIT; i++)
 	{
 		// テクスチャ座標の設定
-		float x = (float)(ScoreNum % 10);
+		float x = (float)(num % 10);
 		vertexScore[i][0].tex = D3DXVECTOR2(0.1f * x, 0.0f);
 		vertexScore[i][1].tex = D3DXVECTOR2(0.1f * (x + 1), 0.0f);
 		vertexScore[i][2].tex = D3DXVECTOR2(0.1f * x, 1.0f);
 		vertexScore[i][3].tex = D3DXVECTOR2(0.1f * (x + 1), 1.0f);
-		ScoreNum /= 10;
+		num /= 10;
 	}
 }
 
@@ -176,7 +171,7 @@ void Score::SetScore(int num)
 //スコア情報のGet関数
 //戻り値：表示しているスコアの数字
 //==========================================
-int Score::GetScore(int num)
+int Score::GetScore()
 {
 	return ScoreNum;
 }

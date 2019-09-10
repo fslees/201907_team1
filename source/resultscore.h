@@ -8,7 +8,7 @@
 #define _RESULTSCORE_H_
 
 #include "main.h"
-
+#include "score.h"
 
 //=================================
 // マクロ定義
@@ -25,7 +25,7 @@
 //===============================
 //クラス定義
 //===============================
-class Resultscore
+class Resultscore:public Score
 {
 public://メンバー変数
 	LPDIRECT3DTEXTURE9  resultScoreTex = NULL;					//テクスチャへのポインタ
