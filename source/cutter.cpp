@@ -6,11 +6,12 @@
 //=============================================================================
 #include "cutter.h"
 #include "inputmanager.h"
+#include "game.h"
 
 //*****************************************************************************
 // マクロ定義
 //*****************************************************************************
-//#define	TEXTURE_CUTTER	"data/TEXTURE/field000.jpg"	// 読み込むテクスチャファイル名
+#define	TEXTURE_CUTTER	"data/TEXTURE/lightSaber.png"	// 読み込むテクスチャファイル名
 
 //*****************************************************************************
 // プロトタイプ宣言
@@ -23,9 +24,21 @@ HRESULT MakeVertexCutter(LPDIRECT3DDEVICE9 device);
 LPDIRECT3DTEXTURE9		D3DTextureCutter = NULL;	// テクスチャへのポインタ
 LPDIRECT3DVERTEXBUFFER9 D3DVtxBuffCutter = NULL;	// 頂点バッファへのポインタ
 
-D3DXMATRIX				mtxWorldCutter;			// ワールドマトリックス
+D3DXMATRIX				mtxWorldCutter;				// ワールドマトリックス
 D3DXVECTOR3				posCutter;					// 現在の位置
 D3DXVECTOR3				rotCutter;					// 現在の向き
+
+const static D3DXVECTOR3	RANGE_CUTTER[4] =
+{
+	D3DXVECTOR3(150.0f, 0.0f, -100.0f),
+	D3DXVECTOR3(150.0f, 0.0f, 100.0f),
+	D3DXVECTOR3(80.0f, 0.0f, -100.0f),
+	D3DXVECTOR3(80.0f, 0.0f, 100.0f)
+};
+
+const static float		MIN_VALUE_ROT_Z = 0.7f;
+const static float		MAX_VALUE_ROT_Z = 2.4f;
+const static float		MOVE_SPEED_ROT_Z = 0.02f;
 
 //=============================================================================
 // 初期化処理
@@ -37,12 +50,12 @@ HRESULT InitCutter(D3DXVECTOR3 pos)
 
 	// 位置、向きの初期設定
 	posCutter = D3DXVECTOR3(0.0f, 0.0f, pos.z);
-	rotCutter = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+	rotCutter = D3DXVECTOR3(0.0f, 0.0f, MIN_VALUE_ROT_Z);
 	
 	// テクスチャの読み込み
-	//D3DXCreateTextureFromFile(device,					// デバイスへのポインタ
-	//							TEXTURE_CUTTER,			// ファイルの名前
-	//							&D3DTextureCutter);	// 読み込むメモリー
+	D3DXCreateTextureFromFile(device,					// デバイスへのポインタ
+								TEXTURE_CUTTER,			// ファイルの名前
+								&D3DTextureCutter);	// 読み込むメモリー
 
 	// 頂点情報の作成
 	hr = MakeVertexCutter(device);
@@ -73,14 +86,15 @@ void UninitCutter(void)
 //=============================================================================
 void UpdateCutter(void)
 {
-	if (GetInput(PUSH_LEFT))
+	if (GetInput(PUSH_LEFT) && rotCutter.z <= MAX_VALUE_ROT_Z)
 	{
-		rotCutter.z += 0.02f;
+		rotCutter.z += MOVE_SPEED_ROT_Z;
 	}
-	if (GetInput(PUSH_RIGHT))
+	if (GetInput(PUSH_RIGHT) && rotCutter.z >= MIN_VALUE_ROT_Z)
 	{
-		rotCutter.z -= 0.02f;
+		rotCutter.z -= MOVE_SPEED_ROT_Z;
 	}	
+
 }
 
 //=============================================================================
@@ -90,14 +104,24 @@ void DrawCutter(void)
 {
 
 	LPDIRECT3DDEVICE9 device = GetDevice(); 
-	D3DXMATRIX mtxRot, mtxTranslate;
+	D3DXMATRIX mtxRot, mtxTranslate, mtxView;
 
-	device->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
+	//device->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
 	device->SetRenderState(D3DRS_LIGHTING, FALSE);
 	device->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);				// 裏面をカリング
 
+
 	// ワールドマトリックスの初期化
 	D3DXMatrixIdentity(&mtxWorldCutter);
+
+	//// ビューマトリックスを取得
+	//mtxView = GetMtxGameView();
+
+	//// 逆行列をもとめる
+	//D3DXMatrixInverse(&mtxWorldCutter, NULL, &mtxView);
+	//mtxWorldCutter._41 = 0.0f;
+	//mtxWorldCutter._42 = 0.0f;
+	//mtxWorldCutter._43 = 0.0f;
 
 	// 回転を反映
 	D3DXMatrixRotationYawPitchRoll(&mtxRot, rotCutter.y, rotCutter.x, rotCutter.z);
@@ -117,13 +141,13 @@ void DrawCutter(void)
 	device->SetFVF(FVF_VERTEX_3D);
 
 	// テクスチャの設定
-	device->SetTexture(0, NULL);
+	device->SetTexture(0, D3DTextureCutter);
 
 	// ポリゴンの描画
 	device->DrawPrimitive(D3DPT_TRIANGLESTRIP, 0, NUM_POLYGON);
 
 	device->SetRenderState(D3DRS_LIGHTING, TRUE);
-	device->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
+	//device->SetRenderState(D3DRS_FILLMODE, D3DFILL_SOLID);
 	device->SetRenderState(D3DRS_CULLMODE, D3DCULL_CCW);				// 裏面をカリング
 
 }
@@ -151,10 +175,10 @@ HRESULT MakeVertexCutter(LPDIRECT3DDEVICE9 device)
 		D3DVtxBuffCutter->Lock(0, 0, (void**)&vtx, 0);
 
 		// 頂点座標の設定
-		vtx[0].vtx = D3DXVECTOR3(150.0f, 0.0f, -100.0f);
-		vtx[1].vtx = D3DXVECTOR3(150.0f, 0.0f, 100.0f);
-		vtx[2].vtx = D3DXVECTOR3(80.0f, 0.0f, -100.0f);
-		vtx[3].vtx = D3DXVECTOR3(80.0f, 0.0f, 100.0f);
+		vtx[0].vtx = D3DXVECTOR3(RANGE_CUTTER[0].x, RANGE_CUTTER[0].y, -5.0f);
+		vtx[1].vtx = D3DXVECTOR3(RANGE_CUTTER[1].x, RANGE_CUTTER[1].y, 5.0f);
+		vtx[2].vtx = D3DXVECTOR3(RANGE_CUTTER[2].x, RANGE_CUTTER[2].y, -5.0f);
+		vtx[3].vtx = D3DXVECTOR3(RANGE_CUTTER[3].x, RANGE_CUTTER[3].y, 5.0f);
 
 		// 法線ベクトルの設定
 		vtx[0].nor = D3DXVECTOR3(0.0f, 1.0f, 0.0f);
@@ -198,38 +222,34 @@ D3DXVECTOR3 GetCutterPos(void)
 	return posCutter;
 }
 
-//PLANE GetCutterState(void)
-//{
-//	PLANE wk;
-//	LPDIRECT3DDEVICE9 device = GetDevice();
-//	VERTEX_3D *vtx;
-//	D3DXMATRIX mtxTranslate, mtxRot, mtxWk;
-//	D3DXVECTOR3 vec01, vec02, nor;
-//
-//
-//	D3DXMatrixIdentity(&mtxWk);
-//
-//	D3DXMatrixRotationYawPitchRoll(&mtxRot, rotCutter.y, rotCutter.x, rotCutter.z);
-//	D3DXMatrixMultiply(&mtxWk, &mtxWk, &mtxRot);
-//
-//	D3DXMatrixTranslation(&mtxTranslate, posCutter.x, posCutter.y, posCutter.z);
-//	D3DXMatrixMultiply(&mtxWk, &mtxWk, &mtxTranslate);
-//
-//	D3DVtxBuffCutter->Lock(0, 0, (void**)&vtx, 0);
-//	for (int cntVtx = 0; cntVtx < 4; cntVtx++)
-//	{// ブロックのローカル座標をワールド座標に変換
-//		D3DXVec3TransformCoord(&wk.vtx[cntVtx], &vtx[cntVtx].vtx, &mtxWk);
-//	}
-//	D3DVtxBuffCutter->Unlock();
-//
-//
-//	vec01 = wk.vtx[1] - wk.vtx[0];
-//	vec02 = wk.vtx[2] - wk.vtx[0];
-//
-//	D3DXVec3Cross(&nor, &vec01, &vec02);
-//	D3DXVec3Normalize(&wk.nor, &nor);
-//
-//
-//	return wk;
-//	
-//}
+PLANE GetCutterState(void)
+{
+	PLANE wk;
+	D3DXMATRIX mtxTranslate, mtxRot, mtxWk;
+	D3DXVECTOR3 vec01, vec02, nor;
+
+
+	D3DXMatrixIdentity(&mtxWk);
+
+	D3DXMatrixRotationYawPitchRoll(&mtxRot, rotCutter.y, rotCutter.x, rotCutter.z);
+	D3DXMatrixMultiply(&mtxWk, &mtxWk, &mtxRot);
+
+	D3DXMatrixTranslation(&mtxTranslate, posCutter.x, posCutter.y, posCutter.z);
+	D3DXMatrixMultiply(&mtxWk, &mtxWk, &mtxTranslate);
+
+	for (int cntVtx = 0; cntVtx < 4; cntVtx++)
+	{// ブロックのローカル座標をワールド座標に変換
+		D3DXVec3TransformCoord(&wk.vtx[cntVtx], &RANGE_CUTTER[cntVtx], &mtxWk);
+	}
+
+
+	vec01 = wk.vtx[1] - wk.vtx[0];
+	vec02 = wk.vtx[2] - wk.vtx[0];
+
+	D3DXVec3Cross(&nor, &vec01, &vec02);
+	D3DXVec3Normalize(&wk.nor, &nor);
+
+
+	return wk;
+	
+}

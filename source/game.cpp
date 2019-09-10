@@ -160,7 +160,7 @@ void DrawGame()
 {
 	// カメラのセット
 	camera->Set();
-	
+
 	// レーンの描画
 	lane->Draw();
 
@@ -170,14 +170,16 @@ void DrawGame()
 	// ノーツの描画
 	note->Draw();
 
-	// スコアの描画
-	score->DrawScore();
 
 	// 判定評価の描画
 	DrawRating();
 
 	// カッターの描画
 	DrawCutter();
+
+	// スコアの描画
+	score->DrawScore();
+
 }
 
 
@@ -191,4 +193,12 @@ void InitCamera()
 	InitData.posAT = INIT_POS_AT;
 
 	camera = new Camera(InitData);
+}
+
+//*****************************************************************************
+// カメラのビュー行列取得
+//*****************************************************************************
+D3DXMATRIX GetMtxGameView()
+{
+	return camera->GetMtxView();
 }

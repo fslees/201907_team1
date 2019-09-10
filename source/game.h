@@ -18,4 +18,7 @@ void UpdateGame();
 //
 void DrawGame();
 
+D3DXMATRIX GetMtxGameView();
+
+
 #endif
