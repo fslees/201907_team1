@@ -107,15 +107,27 @@ void UpdateGame()
 	// ノーツの更新
 	note->Update();
 
+	// ロングノーツの更新
+
+	// ロングノーツの設置
+	if (note->longNote)
+	{
+		// ロングノーツのセット 
+	}
+
 	lane->Update();
 
 	score->UpdateScore();
 	
+#ifdef _DEBUG
+
 	//ゲーム遷移
 	if (GetKeyboardTrigger(DIK_1))
 	{
-		SetScene(2);
+		SetScene(SCENE_RESULT);
 	}
+
+#endif 
 
 }
 

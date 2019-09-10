@@ -8,6 +8,7 @@
 
 // サウンドファイルのパス（hの通しナンバーと合わせること）
 const TCHAR* c_soundFilename[] = {
+	_T("data/BGM/NULL.WAV"),
 	_T("data/BGM/title_bgm.wav"),
 	_T("data/BGM/track01.wav"),
 };

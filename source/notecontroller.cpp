@@ -90,6 +90,7 @@ void CheckHit(Note *note, D3DXVECTOR3 linePos)
 	// X軸でレーンを判定,Z座標で成功パターンの判定
 	if (pos.x == linePos.x && pos.z <= 10 && pos.z >= 0)
 	{	//パーフェクト
+
 		note->use = false;
 	}
 	else if (pos.x == linePos.x && pos.z <= 30 && pos.z >= -10)

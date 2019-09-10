@@ -40,13 +40,6 @@ HRESULT InitResult()
 								TEXTURE_RESULT,		// ファイルの名前
 								&resultTex);		// 読み込むメモリー
 
-	//頂点座標の初期化
-	/*vertexResult[0].vtx = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
-	  vertexResult[1].vtx = D3DXVECTOR3((float)(SCREEN_WIDTH), 0.0f, 0.0f);
-	  vertexResult[2].vtx = D3DXVECTOR3(0.0f, (float)(SCREEN_HEIGHT), 0.0f);
-      vertexResult[3].vtx = D3DXVECTOR3((float)(SCREEN_WIDTH), (float)(SCREEN_HEIGHT), 0.0f);*/
-
-
 	//頂点の作成
 	MakeVertex();
 
