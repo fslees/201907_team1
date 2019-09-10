@@ -165,3 +165,11 @@ HRESULT HitLine::MakeVertexHitLine(LPDIRECT3DDEVICE9 pDevice)
 
 	return S_OK;
 }
+
+//=============================================================================
+// ˆÊ’u‚ÌŽæ“¾
+//=============================================================================
+D3DXVECTOR3	HitLine::GetPos(void)
+{
+	return pos;
+}

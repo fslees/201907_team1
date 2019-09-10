@@ -24,6 +24,7 @@
     <ClInclude Include="source\bmsmanager.h" />
     <ClInclude Include="source\camera.h" />
     <ClInclude Include="source\checkhit.h" />
+    <ClInclude Include="source\cutter.h" />
     <ClInclude Include="source\debugproc.h" />
     <ClInclude Include="source\game.h" />
     <ClInclude Include="source\hitline.h" />
@@ -51,6 +52,7 @@
     <ClCompile Include="source\bmsmanager.cpp" />
     <ClCompile Include="source\camera.cpp" />
     <ClCompile Include="source\checkhit.cpp" />
+    <ClCompile Include="source\cutter.cpp" />
     <ClCompile Include="source\debugproc.cpp" />
     <ClCompile Include="source\game.cpp" />
     <ClCompile Include="source\hitline.cpp" />
