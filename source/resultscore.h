@@ -14,10 +14,10 @@
 // マクロ定義
 //=================================
 #define TEXTURE_RESULTSCORE "data/TEXTURE/number.png"
-#define TEXTURE_RESULTSCORE_SIZE_X	(300)				// スコアテクスチャサイズ
-#define TEXTURE_RESULTSCORE_SIZE_Y	(300)				// 同上
-#define RESULTSCORE_POS_X		(800)					// スコアの初期位置X
-#define RESULTSCORE_POS_Y		(300)					// 同上
+#define TEXTURE_RESULTSCORE_SIZE_X	(200)				// スコアテクスチャサイズ
+#define TEXTURE_RESULTSCORE_SIZE_Y	(200)				// 同上
+#define RESULTSCORE_POS_X		(850)					// スコアの初期位置X
+#define RESULTSCORE_POS_Y		(500)					// 同上
 #define RESULTSCORE_WIDE		(150)                    //数字の幅
 #define RESULTSCORE_MAX			(99999)					// スコアの最大値
 #define RESULTSCORE_DIGIT		(5)						// 桁数
