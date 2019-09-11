@@ -9,6 +9,8 @@
 #include "result.h"
 #include "title.h"
 #include "tutorial.h"
+#include "titlelogo.h"
+#include "resultscore.h"
 
 //*****************************************************************************
 // マクロ定義
@@ -24,7 +26,7 @@
 // グローバル変数
 //*****************************************************************************
 static int SceneState = NAME_INIT_SCENE;
-
+Resultscore *resultscore;
 
 
 //*****************************************************************************
@@ -36,6 +38,7 @@ void InitScene()
 	{
 	case SCENE_TITLE:
 		InitTitle();
+		InitTitleLogo();
 		break;
 
 	case SCENE_TUTORIAL:
@@ -48,6 +51,7 @@ void InitScene()
 
 	case SCENE_RESULT:
 		InitResult();
+		resultscore = new Resultscore;
 		break;
 	
 	default:
@@ -64,6 +68,7 @@ void UninitScene()
 	{
 	case SCENE_TITLE:
 		UninitTitle();
+		UninitTitleLogo();
 		break;
 
 	case SCENE_TUTORIAL:
@@ -75,8 +80,8 @@ void UninitScene()
 		break;
 
 	case SCENE_RESULT:
-		//result.UninitResult();
 		UninitResult();
+		delete resultscore;
 		break;
 
 	default:
@@ -94,6 +99,7 @@ void UpdateScene()
 	{
 	case SCENE_TITLE:
 		UpdateTitle();
+		UpdateTitleLogo();
 		break;
 
 	case SCENE_TUTORIAL:
@@ -106,6 +112,7 @@ void UpdateScene()
 
 	case SCENE_RESULT:
 		UpdateResult();
+		resultscore->UpdateResultScore();
 		break;
 
 	default:
@@ -122,6 +129,7 @@ void DrawScene()
 	{
 	case SCENE_TITLE:
 		DrawTitle();
+		DrawTitleLogo();
 		break;
 
 	case SCENE_TUTORIAL:
@@ -134,6 +142,7 @@ void DrawScene()
 
 	case SCENE_RESULT:
 		DrawResult();
+		resultscore->DrawResultScore();
 		break;
 
 	default:

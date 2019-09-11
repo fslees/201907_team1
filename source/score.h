@@ -42,15 +42,16 @@ public://メンバー関数
 	~Score();//テクスチャの解放
 
 	void UninitScore();
-	//
+	//更新処理
 	void UpdateScore();
-	//
+	//描画処理
 	void DrawScore();
-    //
+    //頂点の作成
 	void MakeVertex(D3DXVECTOR3 pos);
-	//
+	//スコアの設置
 	void SetScore(int num);
-
+	//スコアの獲得
+	int GetScore();
 
 };
 

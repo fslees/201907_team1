@@ -180,3 +180,11 @@ void AddScore(int rate)
 		break;
 	}
 }
+
+//==================================
+//ÉXÉRÉAÇÃGetä÷êî
+//==================================
+int Score::GetScore()
+{
+	return score;
+}
