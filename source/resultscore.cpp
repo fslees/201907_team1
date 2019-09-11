@@ -32,11 +32,11 @@ Resultscore::Resultscore()
 
 	// テクスチャの読み込み
 	D3DXCreateTextureFromFile(Device,				// デバイスへのポインタ
-								TEXTURE_SCORE,		// ファイルの名前
+								TEXTURE_RESULTSCORE,		// ファイルの名前
 									&resultScoreTex);// 読み込むメモリー
 
-						//表示位置の初期化
-	pos = D3DXVECTOR3((float)SCORE_POS_X, (float)SCORE_POS_Y, 0.0f);
+	//表示位置の初期化
+	pos = D3DXVECTOR3((float)RESULTSCORE_POS_X, (float)RESULTSCORE_POS_Y, 0.0f);
 
 	//頂点の作成
 	MakeVertex(pos);
@@ -88,7 +88,7 @@ void  Resultscore::DrawResultScore()
 	pDevice->SetTexture(0, resultScoreTex);
 
 
-	for (int i = 0; i < SCORE_DIGIT; i++)
+	for (int i = 0; i < RESULTSCORE_DIGIT; i++)
 	{
 		// 頂点フォーマットの設定
 		pDevice->SetFVF(FVF_VERTEX_2D);
@@ -107,20 +107,20 @@ void  Resultscore::DrawResultScore()
 void Resultscore::MakeVertex(D3DXVECTOR3 pos)
 {
 	// 桁数分処理する
-	for (int i = 0; i < SCORE_DIGIT; i++)
+	for (int i = 0; i < RESULTSCORE_DIGIT; i++)
 	{
 		// 頂点座標の設定
-		vertexResultScore[i][0].vtx.x = -SCORE_WIDE * i + pos.x;
+		vertexResultScore[i][0].vtx.x = -RESULTSCORE_WIDE * i + pos.x;
 		vertexResultScore[i][0].vtx.y = pos.y;
 		vertexResultScore[i][0].vtx.z = 0.0f;
-		vertexResultScore[i][1].vtx.x = -SCORE_WIDE * i + pos.x + TEXTURE_SCORE_SIZE_X;
+		vertexResultScore[i][1].vtx.x = -RESULTSCORE_WIDE * i + pos.x + TEXTURE_RESULTSCORE_SIZE_X;
 		vertexResultScore[i][1].vtx.y = pos.y;
 		vertexResultScore[i][1].vtx.z = 0.0f;
-		vertexResultScore[i][2].vtx.x = -SCORE_WIDE * i + pos.x;
-		vertexResultScore[i][2].vtx.y = pos.y + TEXTURE_SCORE_SIZE_Y;
+		vertexResultScore[i][2].vtx.x = -RESULTSCORE_WIDE * i + pos.x;
+		vertexResultScore[i][2].vtx.y = pos.y + TEXTURE_RESULTSCORE_SIZE_Y;
 		vertexResultScore[i][2].vtx.z = 0.0f;
-		vertexResultScore[i][3].vtx.x = -SCORE_WIDE * i + pos.x + TEXTURE_SCORE_SIZE_X;
-		vertexResultScore[i][3].vtx.y = pos.y + TEXTURE_SCORE_SIZE_Y;
+		vertexResultScore[i][3].vtx.x = -RESULTSCORE_WIDE * i + pos.x + TEXTURE_RESULTSCORE_SIZE_X;
+		vertexResultScore[i][3].vtx.y = pos.y + TEXTURE_RESULTSCORE_SIZE_Y;
 		vertexResultScore[i][3].vtx.z = 0.0f;
 
 		// rhwの設定
@@ -155,7 +155,7 @@ void Resultscore::SetResultScore(int num)
 
 	resultScore = num;
 
-	for (int i = 0; i < SCORE_DIGIT; i++)
+	for (int i = 0; i < RESULTSCORE_DIGIT; i++)
 	{
 		// テクスチャ座標の設定
 		float x = (float)(resultScore % 10);

@@ -1,6 +1,6 @@
 //=============================================================================
 //
-// スコアの定義 [score.h]
+// リザルトスコアの定義 [resultscore.h]
 // Author :染矢　晃介
 //
 //=============================================================================
@@ -13,14 +13,14 @@
 //=================================
 // マクロ定義
 //=================================
-#define TEXTURE_SCORE "data/TEXTURE/number.png"
-#define TEXTURE_SCORE_SIZE_X			(100)					// スコアテクスチャサイズ
-#define TEXTURE_SCORE_SIZE_Y			(100)					// 同上
-#define SCORE_POS_X						(1200)					// スコアの初期位置X
-#define SCORE_POS_Y						(10)					// 同上
-#define SCORE_WIDE				(50)                            //数字の幅
-#define SCORE_MAX				(99999)							// スコアの最大値
-#define SCORE_DIGIT				(5)								// 桁数
+#define TEXTURE_RESULTSCORE "data/TEXTURE/number.png"
+#define TEXTURE_RESULTSCORE_SIZE_X	(300)				// スコアテクスチャサイズ
+#define TEXTURE_RESULTSCORE_SIZE_Y	(300)				// 同上
+#define RESULTSCORE_POS_X		(800)					// スコアの初期位置X
+#define RESULTSCORE_POS_Y		(300)					// 同上
+#define RESULTSCORE_WIDE		(150)                    //数字の幅
+#define RESULTSCORE_MAX			(99999)					// スコアの最大値
+#define RESULTSCORE_DIGIT		(5)						// 桁数
 
 //===============================
 //クラス定義
