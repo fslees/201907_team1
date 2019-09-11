@@ -52,7 +52,7 @@ void UninitTitle()
 //*****************************************************************************
 void UpdateTitle()
 {
-	if (GetKeyboardTrigger(DIK_1))
+	if (GetInput(HIT_START))
 	{
 		SetScene(SCENE_TUTORIAL);
 	}

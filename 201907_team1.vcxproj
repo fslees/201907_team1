@@ -23,7 +23,6 @@
     <ClInclude Include="source\bmsfile.h" />
     <ClInclude Include="source\bmsmanager.h" />
     <ClInclude Include="source\camera.h" />
-    <ClInclude Include="source\checkhit.h" />
     <ClInclude Include="source\cutter.h" />
     <ClInclude Include="source\debugproc.h" />
     <ClInclude Include="source\game.h" />
@@ -53,7 +52,6 @@
     <ClCompile Include="source\bmsfile.cpp" />
     <ClCompile Include="source\bmsmanager.cpp" />
     <ClCompile Include="source\camera.cpp" />
-    <ClCompile Include="source\checkhit.cpp" />
     <ClCompile Include="source\cutter.cpp" />
     <ClCompile Include="source\debugproc.cpp" />
     <ClCompile Include="source\game.cpp" />
@@ -82,7 +80,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{4917BAE1-4CA9-4F0E-8066-9DD816EE85C3}</ProjectGuid>
     <RootNamespace>My201907team1</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
