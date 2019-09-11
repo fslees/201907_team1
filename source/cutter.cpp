@@ -36,7 +36,7 @@ const static D3DXVECTOR3	RANGE_CUTTER[4] =
 	D3DXVECTOR3(80.0f, 0.0f, 100.0f)
 };
 
-const static float		MIN_VALUE_ROT_Z = 0.7f;
+const static float		MIN_VALUE_ROT_Z = 0.75f;
 const static float		MAX_VALUE_ROT_Z = 2.4f;
 const static float		MOVE_SPEED_ROT_Z = 0.02f;
 
@@ -94,6 +94,19 @@ void UpdateCutter(void)
 	{
 		rotCutter.z -= MOVE_SPEED_ROT_Z;
 	}	
+
+	if (GetInput(PUSH_UP))
+	{
+		if (rotCutter.z + MOVE_SPEED_ROT_Z < D3DX_PI / 2.0f)
+		{
+			rotCutter.z += MOVE_SPEED_ROT_Z;
+		}
+		else if (rotCutter.z - MOVE_SPEED_ROT_Z  > D3DX_PI / 2.0f)
+		{
+			rotCutter.z -= MOVE_SPEED_ROT_Z;
+		}
+	}
+
 
 }
 
@@ -175,10 +188,10 @@ HRESULT MakeVertexCutter(LPDIRECT3DDEVICE9 device)
 		D3DVtxBuffCutter->Lock(0, 0, (void**)&vtx, 0);
 
 		// 頂点座標の設定
-		vtx[0].vtx = D3DXVECTOR3(RANGE_CUTTER[0].x, RANGE_CUTTER[0].y, -5.0f);
-		vtx[1].vtx = D3DXVECTOR3(RANGE_CUTTER[1].x, RANGE_CUTTER[1].y, 5.0f);
-		vtx[2].vtx = D3DXVECTOR3(RANGE_CUTTER[2].x, RANGE_CUTTER[2].y, -5.0f);
-		vtx[3].vtx = D3DXVECTOR3(RANGE_CUTTER[3].x, RANGE_CUTTER[3].y, 5.0f);
+		vtx[0].vtx = D3DXVECTOR3(RANGE_CUTTER[0].x, 2.0f, 0.0f);
+		vtx[1].vtx = D3DXVECTOR3(RANGE_CUTTER[1].x, -2.0f, 0.0f);
+		vtx[2].vtx = D3DXVECTOR3(RANGE_CUTTER[2].x, 2.0f, 0.0f);
+		vtx[3].vtx = D3DXVECTOR3(RANGE_CUTTER[3].x, -2.0f, 0.0f);
 
 		// 法線ベクトルの設定
 		vtx[0].nor = D3DXVECTOR3(0.0f, 1.0f, 0.0f);
