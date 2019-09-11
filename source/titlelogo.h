@@ -11,7 +11,7 @@
 //*****************************************************************************
 // マクロ定義
 //*****************************************************************************
-#define TEXTURE_TITLELOGO "data/TEXTURE/number.png"
+#define TEXTURE_TITLELOGO "data/TEXTURE/titlelogo.png"
 #define LOGO_POS_X			(500)	//ロゴのx座標
 #define LOGO_POS_Y			(450)	//ロゴのY座標
 #define LOGO_WIDTH			(280)	//幅
