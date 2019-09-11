@@ -39,11 +39,13 @@
     <ClInclude Include="source\noteview.h" />
     <ClInclude Include="source\rating.h" />
     <ClInclude Include="source\result.h" />
+    <ClInclude Include="source\resultscore.h" />
     <ClInclude Include="source\scene.h" />
     <ClInclude Include="source\score.h" />
     <ClInclude Include="source\se.h" />
     <ClInclude Include="source\sound.h" />
     <ClInclude Include="source\title.h" />
+    <ClInclude Include="source\titlelogo.h" />
     <ClInclude Include="source\tutorial.h" />
   </ItemGroup>
   <ItemGroup>
@@ -67,18 +69,20 @@
     <ClCompile Include="source\noteview.cpp" />
     <ClCompile Include="source\rating.cpp" />
     <ClCompile Include="source\result.cpp" />
+    <ClCompile Include="source\resultscore.cpp" />
     <ClCompile Include="source\scene.cpp" />
     <ClCompile Include="source\score.cpp" />
     <ClCompile Include="source\se.cpp" />
     <ClCompile Include="source\sound.cpp" />
     <ClCompile Include="source\title.cpp" />
+    <ClCompile Include="source\titlelogo.cpp" />
     <ClCompile Include="source\tutorial.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{4917BAE1-4CA9-4F0E-8066-9DD816EE85C3}</ProjectGuid>
     <RootNamespace>My201907team1</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

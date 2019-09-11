@@ -18,7 +18,7 @@ Note::Note()
 
 	//ílÇÃâºê›íË
 	pos = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
-	scl = D3DXVECTOR3(2.0f, 2.0f, 2.0f);
+	scl = D3DXVECTOR3(NOTE_SCALE_X, NOTE_SCALE_Y, NOTE_SCALE_Z);
 	move = 0;
 	use = false;
 }
