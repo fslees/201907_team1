@@ -20,5 +20,8 @@ void DrawGame();
 
 D3DXMATRIX GetMtxGameView();
 
+D3DXVECTOR3	GetGameCameraPos();
+
+D3DXVECTOR3	GetGameHitLinePos();
 
 #endif

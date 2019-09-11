@@ -35,7 +35,7 @@ void UpdateCutter(void);
 void DrawCutter(void);
 
 //LINE GetCutterLine(void);
-//PLANE GetCutterState(void);
+PLANE GetCutterState(void);
 D3DXVECTOR3 GetCutterPos(void);
 
 /*			
