@@ -36,7 +36,7 @@ bool GetInput(int action)
 		break;
 
 	case HIT_START:
-		return (GetKeyboardTrigger(DIK_RETURN) || IsButtonTriggered(0, BUTTON_START));
+		return (GetKeyboardTrigger(DIK_RETURN) || IsButtonTriggered(0, BUTTON_R));
 		break;
 
 	default:

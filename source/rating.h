@@ -12,9 +12,9 @@
 //=================================
 // É}ÉNÉçíËã`
 //=================================
-#define PERFECT_POS		(20)
-#define GREATE_POS		(40)
-#define GOOD_POS		(50)
+#define PERFECT_POS		(20.0f)
+#define GREATE_POS		(40.0f)
+#define GOOD_POS		(50.0f)
 
 enum RATING_TEX
 {

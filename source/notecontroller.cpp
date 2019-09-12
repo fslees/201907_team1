@@ -13,7 +13,7 @@
 //======================================
 //マクロ定義
 //======================================
-#define NOTE_DELETE_POS		(100)
+#define NOTE_DELETE_POS		(-50.0f)
 
 //======================================
 //コンストラクタ
@@ -42,7 +42,7 @@ void NoteController::Update()
 	note->pos.z -= note->move;
 
 	// 座標が限度を超えるとデリート
-	if (note->pos.z < -NOTE_DELETE_POS)
+	if (note->pos.z < NOTE_DELETE_POS)
 	{
 		note->use = false;
 	}
@@ -84,21 +84,21 @@ void NoteController::CheckHit(Note *note, D3DXVECTOR3 linePos)
 	D3DXVECTOR3 pos = note->GetPos();
 
 	// X軸でレーンを判定,Z座標で成功パターンの判定
-	if (pos.x == linePos.x && pos.z <= PERFECT_POS && pos.z >= 0)
+	if (pos.x == linePos.x && pos.z <= PERFECT_POS && pos.z >= -5.0f)
 	{	//パーフェクト
 		SetSE(SE_00);
 		note->use = false;
 		SetRatingTex(PERFECT);
 		AddScore(PERFECT);
 	}
-	else if (pos.x == linePos.x && pos.z <= GREATE_POS && pos.z >= -10)
+	else if (pos.x == linePos.x && pos.z <= GREATE_POS && pos.z >= -15.0f)
 	{	//グレート
 		SetSE(SE_00);
 		note->use = false;
 		SetRatingTex(GREAT);
 		AddScore(GREAT);
 	}
-	else if (pos.x == linePos.x && pos.z <= GOOD_POS && pos.z >= -15)
+	else if (pos.x == linePos.x && pos.z <= GOOD_POS && pos.z >= -30.0f)
 	{	//グッド
 		SetSE(SE_00);
 		note->use = false;
