@@ -12,6 +12,7 @@ enum
 	SE_00,
 	SE_01,
 	SE_02,
+	SE_03,
 	SE_MAX
 };
 

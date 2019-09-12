@@ -65,6 +65,7 @@ void  UpdateTutorial()
 	if (GetInput(HIT_START))
 	{
 		SetScene(SCENE_GAME);
+		SetTitleBGM();
 	}
 }
 

@@ -8,6 +8,7 @@
 #include "inputmanager.h"
 #include "rating.h"
 #include "score.h"
+#include "se.h"
 
 //======================================
 //マクロ定義
@@ -19,7 +20,6 @@
 //======================================
 NoteController::NoteController()
 {
-	
 }
 
 //=====================================
@@ -86,18 +86,21 @@ void NoteController::CheckHit(Note *note, D3DXVECTOR3 linePos)
 	// X軸でレーンを判定,Z座標で成功パターンの判定
 	if (pos.x == linePos.x && pos.z <= PERFECT_POS && pos.z >= 0)
 	{	//パーフェクト
+		SetSE(SE_00);
 		note->use = false;
 		SetRatingTex(PERFECT);
 		AddScore(PERFECT);
 	}
 	else if (pos.x == linePos.x && pos.z <= GREATE_POS && pos.z >= -10)
 	{	//グレート
+		SetSE(SE_00);
 		note->use = false;
 		SetRatingTex(GREAT);
 		AddScore(GREAT);
 	}
 	else if (pos.x == linePos.x && pos.z <= GOOD_POS && pos.z >= -15)
 	{	//グッド
+		SetSE(SE_00);
 		note->use = false;
 		SetRatingTex(GOOD);
 		AddScore(GOOD);

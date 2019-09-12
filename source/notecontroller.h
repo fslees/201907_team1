@@ -23,7 +23,6 @@ public:
 	Note * note;				//ノーツのポインタ変数
 
 	//メンバー関数
-public:
 	NoteController();			//
 	~NoteController();			//
 	void Update();				//
