@@ -61,10 +61,10 @@ HRESULT InitLight(void)
 	Light[1].Diffuse = D3DXCOLOR(0.75f, 0.75f, 0.75f, 1.0f);
 
 	// 環境光
-	Light[1].Ambient = D3DXCOLOR(0.2f, 0.2f, 0.2f, 1.0f);
+	Light[1].Ambient = D3DXCOLOR(0.2f, -0.2f, 0.2f, 1.0f);
 
     // ライトの方向の設定
-	vecDir = D3DXVECTOR3(-0.20f, 1.00f, -0.50f);
+	vecDir = D3DXVECTOR3(0.30f, -0.3f, 1.0f);
 	D3DXVec3Normalize((D3DXVECTOR3*)&Light[1].Direction, &vecDir);
 
 	// ライトをレンダリングパイプラインに設定
@@ -80,13 +80,13 @@ HRESULT InitLight(void)
 	Light[2].Type = D3DLIGHT_DIRECTIONAL;
 
 	// 拡散光
-	Light[2].Diffuse = D3DXCOLOR(0.25f, 0.25f, 0.25f, 1.0f);
+	Light[2].Diffuse = D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f);
 
 	// 環境光
-	Light[2].Ambient = D3DXCOLOR(0.3f, 0.3f, 0.3f, 1.0f);
+	Light[2].Ambient = D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f);
 
     // ライトの方向の設定
-	vecDir = D3DXVECTOR3(0.80f, 0.10f, 0.50f);
+	vecDir = D3DXVECTOR3(-0.30f, 0.3f, 1.0f);
 	D3DXVec3Normalize((D3DXVECTOR3*)&Light[2].Direction, &vecDir);
 
 	// ライトをレンダリングパイプラインに設定

@@ -29,7 +29,7 @@
 #define INIT_NUM_BLOCK			(1)
 #define NUM_SECTION_VTX			(4)
 #define NUM_NEW_IDX				(2)
-#define COLOR_VTX				D3DXCOLOR(1.0f, 1.0f, 0.7f, 0.8f)
+#define COLOR_VTX				D3DXCOLOR(1.0f, 1.0f, 0.6f, 0.8f)
 //#define NEW_SURFACE_COLOR		D3DXCOLOR(1.0f, 1.0f, 1.0f, 0.9f)
 //#define CENTER_BLOCK			D3DXVECTOR3(0.0f, BLOCK_HEIGHT / 2.0f, 0.0f)
 
@@ -126,14 +126,14 @@ void UpdateStar(void)
 
 	D3DXVECTOR3 vec, wkPos;
 
-	anglePos += 0.015f;
+	anglePos += 0.01f;
 
 	if (GetKeyboardTrigger(DIK_M))
 	{
 		interval = (interval == 60) ? 1 : 60;
 	}
 	
-	const float length = 70.0f;
+	const float length = 60.0f;
 	
 	SetPos = D3DXVECTOR3(cosf(anglePos) * length, 90.0f + fabsf(sinf(anglePos) * length / 3.0f), 1000.0f);
 
@@ -494,7 +494,7 @@ void DrawStar(void)
 
 	// ラインティングを無効にする
 	//device->SetRenderState(D3DRS_LIGHTING, FALSE);
-	//device->SetRenderState(D3DRS_LIGHTING, TRUE);
+	device->SetRenderState(D3DRS_LIGHTING, TRUE);
 	//device->SetRenderState(D3DRS_ZFUNC, D3DCMP_ALWAYS);			// Z比較なし
 	// テクスチャの設定
 	//if (useWire)
@@ -862,7 +862,7 @@ bool ClippingStar(PLANE section)
 			}
 			if (ClippingBlock(section, &star[cntStar], &star[cntStar].block[cntBlock]))
 			{
-				SetSE(1);
+				SetSE(SE_01);
 
 				AddScore(1);
 
