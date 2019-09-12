@@ -64,9 +64,9 @@ void UninitResult()
 //*****************************************************************************
 void  UpdateResult()
 {
-	if (GetKeyboardTrigger(DIK_1))
+	if (GetInput(HIT_START))
 	{
-		SetScene(0);
+		SetScene(SCENE_TITLE);
 	}
 }
 

@@ -124,9 +124,6 @@ void UpdateGame()
 	// ライトの更新
 	UpdateLight();
 
-	// 譜面データの更新
-	bms->Update();
-	bms->CheckSetCount(note);
 
 	// ノーツの更新
 	note->Update();
@@ -137,7 +134,7 @@ void UpdateGame()
 	if (note->longNote)
 	{
 		// ロングノーツのセット 
-		SetLongNote(-2.0f);
+		SetLongNote(-5.0f);
 	}
 
 	// 判定評価の更新
@@ -152,6 +149,8 @@ void UpdateGame()
 	// ロングノーツの更新
 	UpdateStar();
 
+	// 譜面データの更新
+	bms->Update(note);
 #ifdef _DEBUG
 
 	//ゲーム遷移
