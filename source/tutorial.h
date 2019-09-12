@@ -26,4 +26,7 @@
 	void	UpdateTutorial();
 	//•`‰æˆ—
 	void	DrawTutorial();
+
+	void SetTitleBGM();
+
 #endif

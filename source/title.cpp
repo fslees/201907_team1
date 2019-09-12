@@ -8,13 +8,15 @@
 #include "scene.h"
 #include "input.h"
 #include "inputmanager.h"
-
+#include "sound.h"
+#include "se.h"
 //*****************************************************************************
 // グローバル変数
 //*****************************************************************************
 LPDIRECT3DTEXTURE9 titleTex = NULL;	//テクスチャへのポインタ
 VERTEX_2D vertexTitle[NUM_VERTEX];		//頂点情報格納ワーク
 D3DXVECTOR3 vertexTitlePos[NUM_VERTEX];		//頂点の位置情報
+LPDIRECTSOUNDBUFFER8	BGM;				// BGMのサウンドバッファー
 
 //*****************************************************************************
 // ゲームの初期化
@@ -31,6 +33,9 @@ HRESULT InitTitle()
 
 	//頂点の作成
 	MakeVertexTitle();
+
+	BGM = LoadSound(BGM_TITLE);
+	PlaySound(BGM, E_DS8_FLAG_LOOP);
 
 	return S_OK;
 }
@@ -52,8 +57,9 @@ void UninitTitle()
 //*****************************************************************************
 void UpdateTitle()
 {
-	if (GetKeyboardTrigger(DIK_1))
+	if (GetInput(HIT_START))
 	{
+		SetSE(SE_03);
 		SetScene(SCENE_TUTORIAL);
 	}
 }
@@ -104,4 +110,9 @@ void MakeVertexTitle()
 	vertexTitle[1].tex = D3DXVECTOR2(1.0f, 0.0f);
 	vertexTitle[2].tex = D3DXVECTOR2(0.0f, 1.0f);
 	vertexTitle[3].tex = D3DXVECTOR2(1.0f, 1.0f);
+}
+
+void SetTitleBGM()
+{
+	StopSound(BGM);
 }

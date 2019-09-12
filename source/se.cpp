@@ -17,12 +17,13 @@ const TCHAR* soundFilename[] = {
 	_T("data/SE/hit.wav"),
 	_T("data/SE/dorum .wav"),
 	_T("data/SE/shimbal.wav"),
-	
+	_T("data/SE/selectSE.wav"),
+
 };
 
 // グローバル変数
 static IDirectSound8 *DirectSound = NULL;	// サウンドインターフェース
-static LPDIRECTSOUNDBUFFER8         SE[3]; //SE用のサウンドバッファー
+static LPDIRECTSOUNDBUFFER8         SE[SE_MAX]; //SE用のサウンドバッファー
 
 
 // サウンドの初期化
