@@ -132,6 +132,9 @@
     <ClInclude Include="source\titlelogo.h">
       <Filter>ヘッダー ファイル\title</Filter>
     </ClInclude>
+    <ClInclude Include="source\star.h">
+      <Filter>ヘッダー ファイル\game</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\camera.cpp">
@@ -214,6 +217,9 @@
     </ClCompile>
     <ClCompile Include="source\titlelogo.cpp">
       <Filter>ソース ファイル\title</Filter>
+    </ClCompile>
+    <ClCompile Include="source\star.cpp">
+      <Filter>ソース ファイル\game</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

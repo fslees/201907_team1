@@ -30,15 +30,15 @@ D3DXVECTOR3				rotCutter;					// åªç›ÇÃå¸Ç´
 
 const static D3DXVECTOR3	RANGE_CUTTER[4] =
 {
-	D3DXVECTOR3(150.0f, 0.0f, -100.0f),
-	D3DXVECTOR3(150.0f, 0.0f, 100.0f),
-	D3DXVECTOR3(80.0f, 0.0f, -100.0f),
-	D3DXVECTOR3(80.0f, 0.0f, 100.0f)
+	D3DXVECTOR3(150.0f, 0.0f, -50.0f),
+	D3DXVECTOR3(150.0f, 0.0f, 10.0f),
+	D3DXVECTOR3(80.0f, 0.0f, -50.0f),
+	D3DXVECTOR3(80.0f, 0.0f, 10.0f)
 };
 
-const static float		MIN_VALUE_ROT_Z = 0.75f;
-const static float		MAX_VALUE_ROT_Z = 2.4f;
-const static float		MOVE_SPEED_ROT_Z = 0.02f;
+const static float		MIN_VALUE_ROT_Z = 0.9f;
+const static float		MAX_VALUE_ROT_Z = 2.2f;
+const static float		MOVE_SPEED_ROT_Z = 0.01f;
 
 //=============================================================================
 // èâä˙âªèàóù
@@ -86,26 +86,25 @@ void UninitCutter(void)
 //=============================================================================
 void UpdateCutter(void)
 {
+	bool isMove = false;
+
 	if (GetInput(PUSH_LEFT) && rotCutter.z <= MAX_VALUE_ROT_Z)
 	{
 		rotCutter.z += MOVE_SPEED_ROT_Z;
 	}
-	if (GetInput(PUSH_RIGHT) && rotCutter.z >= MIN_VALUE_ROT_Z)
+	else if (GetInput(PUSH_RIGHT) && rotCutter.z >= MIN_VALUE_ROT_Z)
 	{
 		rotCutter.z -= MOVE_SPEED_ROT_Z;
-	}	
-
-	if (GetInput(PUSH_UP))
-	{
-		if (rotCutter.z + MOVE_SPEED_ROT_Z < D3DX_PI / 2.0f)
-		{
-			rotCutter.z += MOVE_SPEED_ROT_Z;
-		}
-		else if (rotCutter.z - MOVE_SPEED_ROT_Z  > D3DX_PI / 2.0f)
-		{
-			rotCutter.z -= MOVE_SPEED_ROT_Z;
-		}
 	}
+	else if (GetInput(PUSH_UP) && !GetInput(PUSH_RIGHT) && rotCutter.z + MOVE_SPEED_ROT_Z < D3DX_PI / 2.0f)
+	{
+		rotCutter.z += MOVE_SPEED_ROT_Z;
+	}
+	else if (GetInput(PUSH_UP) && !GetInput(PUSH_LEFT) && rotCutter.z - MOVE_SPEED_ROT_Z > D3DX_PI / 2.0f)
+	{
+		rotCutter.z -= MOVE_SPEED_ROT_Z;
+	}
+
 
 
 }

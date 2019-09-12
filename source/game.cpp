@@ -18,6 +18,7 @@
 #include "scene.h"
 #include "hitline.h"
 #include "cutter.h"
+#include "star.h"
 
 //*****************************************************************************
 // マクロ定義
@@ -72,6 +73,9 @@ void InitGame()
 	// カッターの初期化
 	InitCutter(hitLine->GetPos());
 
+	// ロングノーツの初期化	
+	InitStar();
+
 }
 
 //*****************************************************************************
@@ -102,6 +106,9 @@ void UninitGame()
 	// カッターの終了
 	UninitCutter();
 
+	// ロングノーツの終了
+	UninitStar();
+
 }
 
 
@@ -130,6 +137,7 @@ void UpdateGame()
 	if (note->longNote)
 	{
 		// ロングノーツのセット 
+		SetLongNote(-2.0f);
 	}
 
 	// 判定評価の更新
@@ -141,6 +149,8 @@ void UpdateGame()
 	// カッターの更新
 	UpdateCutter();
 
+	// ロングノーツの更新
+	UpdateStar();
 
 #ifdef _DEBUG
 
@@ -164,15 +174,17 @@ void DrawGame()
 	// レーンの描画
 	lane->Draw();
 
-	// 判定ラインの描画
-	hitLine->Draw();
-
 	// ノーツの描画
 	note->Draw();
 
+	// 判定ラインの描画
+	hitLine->Draw();
 
 	// 判定評価の描画
 	DrawRating();
+
+	// ロングノーツの描画
+	DrawStar();
 
 	// カッターの描画
 	DrawCutter();
@@ -201,4 +213,20 @@ void InitCamera()
 D3DXMATRIX GetMtxGameView()
 {
 	return camera->GetMtxView();
+}
+
+//*****************************************************************************
+// カメラの位置所得
+//*****************************************************************************
+D3DXVECTOR3	GetGameCameraPos()
+{
+	return camera->GetPosEye();
+}
+
+//*****************************************************************************
+// カメラの位置所得
+//*****************************************************************************
+D3DXVECTOR3	GetGameHitLinePos()
+{
+	return hitLine->GetPos();
 }
