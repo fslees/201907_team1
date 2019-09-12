@@ -6,7 +6,7 @@
 //=============================================================================
 #include "bmsmanager.h"
 #include "sound.h"
-
+#include "scene.h"
 //*****************************************************************************
 // マクロ定義
 //*****************************************************************************
@@ -63,7 +63,7 @@ BmsManager::~BmsManager()
 //====================================================================
 // 譜面データの更新処理
 //====================================================================
-void BmsManager::Update()
+void BmsManager::Update(NoteManager *note)
 {
 	// 開始時から経過した時間を算出
 	LARGE_INTEGER li;
@@ -77,6 +77,7 @@ void BmsManager::Update()
 	if (bms.GetMaxCount() + BMS_RESOLUTION <= nowCount)
 	{
 		StopSound(BGM);
+		SetScene(SCENE_RESULT);
 		return;
 	}
 
@@ -90,7 +91,7 @@ void BmsManager::Update()
 			{
 				StopSound(BGM);
 				BGM = LoadSound(BGM_GAME);
-				PlaySound(BGM,E_DS8_FLAG_NONE);
+				PlaySound(BGM, E_DS8_FLAG_NONE);
 				b->bFlag = FALSE;				// 通過したBGMフラグをfalse
 				startNum[BMS_BACKMUSIC] = i + 1;
 			}
@@ -99,6 +100,8 @@ void BmsManager::Update()
 
 	// スクリーン座標上でのスクロール量を算出
 	scrZ = (int)((double)nowCount / (BMS_RESOLUTION / (scrMulti * 192)));
+
+	CheckSetCount(note);
 }
 
 //====================================================================
