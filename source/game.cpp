@@ -130,12 +130,6 @@ void UpdateGame()
 
 	// ロングノーツの更新
 
-	// ロングノーツの設置
-	if (note->longNote)
-	{
-		// ロングノーツのセット 
-		SetLongNote(-5.0f);
-	}
 
 	// 判定評価の更新
 	UpdateRating();
@@ -151,6 +145,13 @@ void UpdateGame()
 
 	// 譜面データの更新
 	bms->Update(note);
+	// ロングノーツの設置
+	if (note->longNote)
+	{
+		// ロングノーツのセット 
+		SetLongNote(-5.0f);
+	}
+
 #ifdef _DEBUG
 
 	//ゲーム遷移
